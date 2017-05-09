@@ -1,8 +1,8 @@
 package com.simpletodo;
 
-import com.reactnativenavigation.NavigationApplication;
+import com.reactnativenavigation.controllers.SplashActivity;
 
-public class MainActivity extends NavigationApplication {
+public class MainActivity extends SplashActivity {
 
     /**
      * Returns the name of the main component registered from JavaScript.

@@ -1,30 +1,51 @@
-import React, { Component } from 'react';
-import { View, Text, TouchableNativeFeedback } from 'react-native';
+import React from 'react';
+import { connect } from 'react-redux';
+import Lists from './Lists';
 
-export default class ListContainer extends React.Component {
+const getNumber = (todos, list) => {
+  return todos.reduce(
+    (num, x) => {
+      return (list.title === x.list || list.title === "All") && !x.completed
+        ? num + 1
+        : num;
+    },
+    0
+  );
+};
 
-	go() {
-
-		this.props.navigator.showModal({
-			title: 'Todo',
-			screen: 'simpletodo.Todoes',
-			navigatorStyle: {
-				statusBarColor: '#0097A7',
-				navBarBackgroundColor: '#00BCD4',
-				navBarTextColor: 'white',
-				navBarButtonColor: 'white',
-			}
-		});
-	}
-
-	render() {
-		return (
-			<TouchableNativeFeedback
-				onPress={() => { this.go() }}>
-				<View style={{backgroundColor:'blue'}}>
-					<Text>List</Text>
-				</View>
-			</TouchableNativeFeedback>
-		)
-	}
+const number = (todos, lists) => {
+  return lists.map(x => ({
+    ...x,
+    count: getNumber(todos, x) || ''
+  }))
 }
+
+const mapStateToProps = state => ({
+  lists: number(state.todos, state.lists),
+});
+const mapDispatchToProps = {
+  createList: title => ({
+    type: "CREATE_LIST",
+    title
+  }),
+  deleteList: title => ({
+    type: "DELETE_LIST",
+    title
+  }),
+	toggleEdit: title => ({
+		type: "TOGGLE_EDIT_LIST",
+		title
+	}),
+	toggleListTitle: title => ({
+		type: "TOGGLE_LIST_TITLE",
+		title
+	}),
+	submitEditList: (oldTitle, newTitle) => ({
+		type: "SUBMIT_EDIT_LIST",
+		oldTitle,
+		newTitle,
+	}),
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Lists);

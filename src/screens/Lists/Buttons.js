@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Alert, View, Text, TouchableNativeFeedback } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import style from './Style/Buttons';
+import style from './style/Buttons';
 
 export default class Buttons extends React.Component {
   render() {

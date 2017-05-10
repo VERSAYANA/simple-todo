@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
-  TouchableNativeFeedback,
   TextInput,
   ScrollView,
   Keyboard
 } from 'react-native';
-import {
-  KeyboardAwareScrollView
-} from 'react-native-keyboard-aware-scrollview';
-import { iconsMap } from '../../icons';
 
 import SingleList from './SingleList';
-import style from './Style/Lists';
+import { iconsMap } from '../../icons';
+import style from './style/Lists';
 
 export default class Lists extends React.Component {
   constructor(props) {
@@ -43,6 +38,7 @@ export default class Lists extends React.Component {
   }
 
   keyboardDidShow() {
+		// console.log('show');
     this.props.navigator.setButtons({
       fab: {},
       animated: false
@@ -50,6 +46,7 @@ export default class Lists extends React.Component {
   }
 
   keyboardDidHide() {
+		// console.log('hide');
     this.props.navigator.setButtons({
       fab: {
         collapsedId: 'new-list',
@@ -66,14 +63,13 @@ export default class Lists extends React.Component {
   }
 
   onNavigatorEvent(event) {
-    // console.log(event);
     if (event.id === 'new-list') {
       this.showTextInput(true);
     }
   }
 
   viewList(title) {
-    this.props.navigator.showModal({
+    this.props.navigator.push({
       screen: 'simpletodo.Todoes',
       title,
       passProps: {

@@ -17,7 +17,7 @@ const mapStateToProps = (state, ownProps) => ({
   id: state.id,
   todoes: fTodos(listTodos(state.todos, ownProps.title), state.filter),
   filter: state.filter,
-  reminder: state.todos.reminder
+	list: ownProps.title
 });
 
 const mapDispatchToProps = {

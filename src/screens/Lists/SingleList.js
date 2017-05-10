@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 
 import Buttons from './Buttons';
-import style from './Style/SingleList';
+import style from './style/SingleList';
 
 export default class SingleList extends React.Component {
   render() {
@@ -20,7 +20,6 @@ export default class SingleList extends React.Component {
       toggleListTitle,
       submitEditList
     } = this.props;
-    console.log(this.props);
 
     let left = null;
     if (!list.editTitle) {

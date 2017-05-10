@@ -96,29 +96,44 @@ export default class Lists extends React.Component {
   }
 
   render() {
-    const { lists, createList } = this.props;
+    const {
+      lists,
+      createList,
+      toggleEdit,
+      deleteList,
+      toggleListTitle,
+			submitEditList,
+    } = this.props;
 
     return (
-        <ScrollView>
-          {lists.map((list, i) => (
-            <SingleList key={i} list={list} viewList={this.viewList} />
-          ))}
+      <ScrollView>
+        {lists.map((list, i) => (
+          <SingleList
+            key={i}
+            list={list}
+            viewList={this.viewList}
+						deleteList={deleteList}
+            toggleEdit={toggleEdit}
+            toggleListTitle={toggleListTitle}
+						submitEditList={submitEditList}
+          />
+        ))}
 
-          <View style={{ height: 80 }}>
-            {this.state.showTextInput
-              ? <TextInput
-                  autoFocus={true}
-                  style={style.textInput}
-                  placeholder={'New List'}
-                  underlineColorAndroid={'transparent'}
-                  placeholderTextColor={'white'}
-                  onSubmitEditing={value => {
-                    createList(value.nativeEvent.text.trim());
-                  }}
-                />
-              : null}
-          </View>
-        </ScrollView>
+        <View style={{ height: 80 }}>
+          {this.state.showTextInput
+            ? <TextInput
+                autoFocus={true}
+                style={style.textInput}
+                placeholder={'New List'}
+                underlineColorAndroid={'transparent'}
+                placeholderTextColor={'white'}
+                onSubmitEditing={value => {
+                  createList(value.nativeEvent.text.trim());
+                }}
+              />
+            : null}
+        </View>
+      </ScrollView>
     );
   }
 }

@@ -11,6 +11,15 @@ const style = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
+	},
+	left: {
+		flex: 1,
+	},
+	listTitle: {
+		color: 'rgba(0, 0, 0, 0.87)'
+	},
+	counterText: {
+		color: 'rgba(0, 0, 0, 0.54)'
 	}
 })
 

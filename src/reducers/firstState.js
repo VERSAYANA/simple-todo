@@ -1,8 +1,6 @@
 export const firstLists = [
   {
     title: "All",
-		edit: false,
-		editTitle: false,
   },
   {
     title: "Buy List",

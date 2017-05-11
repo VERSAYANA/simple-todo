@@ -1,19 +1,22 @@
 import { StyleSheet } from 'react-native';
+import { Dimensions } from 'react-native';
+
 
 const style = StyleSheet.create({
-	container: {
+	row: {
 		flexDirection: 'row',
+		justifyContent: 'space-around',
+		height: 45,
 	},
-	buttonWrapper: {
+	container: {
+		width: (Dimensions.get('window').width / 4) - 10,
 		justifyContent: 'center',
 		alignItems: 'center',
-		width: 50,
-		height: 50,
 	},
-	buttonText: {
+	text: {
 		color: 'rgba(0, 0, 0, 0.87)',
 		fontSize: 11,
-	}
+	},
 })
 
 export default style;

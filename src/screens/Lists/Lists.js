@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 
 import SingleList from './SingleList';
-import { iconsMap } from '../../icons';
 import style from './style/Lists';
 
 export default class Lists extends React.Component {
@@ -17,6 +16,7 @@ export default class Lists extends React.Component {
       showTextInput: false
     };
 
+		this.showTextInput = this.showTextInput.bind(this);
     this.viewList = this.viewList.bind(this);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
@@ -37,30 +37,27 @@ export default class Lists extends React.Component {
     this.keyboardDidHideListener.remove();
   }
 
+	showTextInput(val) {
+		this.setState({ showTextInput: val });
+	}
+
   keyboardDidShow() {
-		// console.log('show');
     this.props.navigator.setButtons({
       fab: {},
-      animated: false
     });
   }
 
   keyboardDidHide() {
-		// console.log('hide');
     this.props.navigator.setButtons({
       fab: {
         collapsedId: 'new-list',
-        collapsedIcon: iconsMap['plus'],
+				collapsedIcon: require('../../icons/plus-white-48.png'),
         backgroundColor: '#FF4081'
       },
-      animated: false
     });
     this.showTextInput(false);
   }
 
-  showTextInput(val) {
-    this.setState({ showTextInput: val });
-  }
 
   onNavigatorEvent(event) {
     if (event.id === 'new-list') {
@@ -72,6 +69,7 @@ export default class Lists extends React.Component {
     this.props.navigator.push({
       screen: 'simpletodo.Todoes',
       title,
+			animated: true,
       passProps: {
         title
       },
@@ -79,12 +77,13 @@ export default class Lists extends React.Component {
         statusBarColor: '#0097A7',
         navBarBackgroundColor: '#00BCD4',
         navBarTextColor: 'white',
-        navBarButtonColor: 'white'
+        navBarButtonColor: 'white',
+				screenBackgroundColor: '#FAFAFA',
       },
       navigatorButtons: {
         fab: {
           collapsedId: 'new-todo',
-          collapsedIcon: iconsMap['plus'],
+					collapsedIcon: require('../../icons/plus-white-48.png'),
           backgroundColor: '#FF4081'
         }
       }
@@ -124,6 +123,7 @@ export default class Lists extends React.Component {
                 underlineColorAndroid={'transparent'}
                 placeholderTextColor={'white'}
                 onSubmitEditing={value => {
+									this.showTextInput(false);
                   createList(value.nativeEvent.text.trim());
                 }}
               />

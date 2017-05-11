@@ -1,14 +1,16 @@
 import { StyleSheet } from 'react-native';
 
 const style = StyleSheet.create({
-	todoRow: {
-		backgroundColor: 'white',
-		height: 50,
-		borderBottomWidth: 1,
+	todoWrapper: {
 		borderBottomColor: 'rgba(0, 0, 0, 0.12)',
+		borderBottomWidth: 1,
+		backgroundColor: 'white',
+		justifyContent: 'space-around'
+	},
+	todoRow: {
 		flexDirection: 'row',
-		justifyContent: 'space-between',
 		alignItems: 'center',
+		height: 50,
 	},
 	left: {
 		flex: 1,
@@ -20,13 +22,20 @@ const style = StyleSheet.create({
 		paddingRight: 16,
 		justifyContent: 'center',
 	},
-	titleContainer: {
+	textContainer: {
 		justifyContent: 'center',
 		flex: 1,
 	},
 	text: {
-		color: 'rgba(0, 0, 0, 0.54)'
+		color: 'rgba(0, 0, 0, 0.87)'
 	},
+	textInput: {
+		paddingLeft: 0,
+		marginLeft: 0,
+	},
+	iconsContainer: {
+		paddingRight: 16,
+	}
 })
 
 export default style;

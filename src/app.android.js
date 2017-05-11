@@ -3,7 +3,6 @@ import { Navigation } from 'react-native-navigation';
 import { Provider } from 'react-redux';
 import { registerScreens } from './screens';
 import store from './store';
-import { iconsMap, iconsLoaded } from './icons';
 
 registerScreens(store, Provider);
 
@@ -11,27 +10,22 @@ const navigatorStyle = {
   statusBarColor: '#0097A7',
   navBarBackgroundColor: '#00BCD4',
   navBarTextColor: 'white',
-	orientation: 'portrait'
+	screenBackgroundColor: '#FAFAFA',
 };
 
 
-iconsLoaded.then(() => {
-  startApp();
-});
 
-function startApp() {
-	Navigation.startSingleScreenApp({
-	  screen: {
-	    screen: 'simpletodo.Lists',
-	    title: 'Lists',
-	    navigatorStyle,
-			navigatorButtons: {
-				fab: {
-					collapsedId: 'new-list',
-					collapsedIcon: iconsMap['plus'],
-					backgroundColor: '#FF4081'
-				}
+Navigation.startSingleScreenApp({
+  screen: {
+    screen: 'simpletodo.Lists',
+    title: 'Lists',
+    navigatorStyle,
+		navigatorButtons: {
+			fab: {
+				collapsedId: 'new-list',
+				collapsedIcon: require('./icons/plus-white-48.png'),
+				backgroundColor: '#FF4081'
 			}
-	  }
-	});
-}
+		}
+  }
+});

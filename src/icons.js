@@ -5,7 +5,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 // here we use active, big, small, very-big..
 const replaceSuffixPattern = /--(active|big|small|very-big)/g;
 const icons = {
-  "plus": [18, "#fff"],
+  "plus": [24, "#fff"],
 }
 
 const defaultIconProvider = MaterialCommunityIcons;

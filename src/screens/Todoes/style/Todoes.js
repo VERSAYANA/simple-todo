@@ -1,28 +1,34 @@
 import { StyleSheet } from 'react-native';
 
 const style = StyleSheet.create({
-	listRow: {
+	switchRow: {
 		backgroundColor: 'white',
 		height: 50,
-		// paddingLeft: 16,
-		// paddingRight: 16,
+		flexDirection: 'row',
 		borderBottomWidth: 1,
 		borderBottomColor: 'rgba(0, 0, 0, 0.12)',
+		alignItems: 'center',
+		justifyContent: 'space-between'
+	},
+	textInputContainer: {
+		backgroundColor: 'white',
+		height: 50,
 		flexDirection: 'row',
-		justifyContent: 'space-between',
+		borderBottomWidth: 1,
+		borderBottomColor: 'rgba(0, 0, 0, 0.12)',
 		alignItems: 'center',
 	},
-	left: {
+	textInput: {
 		flex: 1,
+    paddingLeft: 0,
+  	marginLeft: 0,
+
+	},
+	checkBox: {
 		paddingLeft: 16,
-	},
-	listTitle: {
-		color: 'rgba(0, 0, 0, 0.87)',
-	},
-	counterText: {
-		color: 'rgba(0, 0, 0, 0.54)',
 		paddingRight: 16,
 	},
+
 })
 
 export default style;

@@ -27,7 +27,11 @@ const style = StyleSheet.create({
 		flex: 1,
 	},
 	text: {
-		color: 'rgba(0, 0, 0, 0.87)'
+		color: 'rgba(0, 0, 0, 0.80)'
+	},
+	completedText: {
+		color: 'rgba(0, 0, 0, 0.54)',
+		textDecorationLine: 'line-through',
 	},
 	textInput: {
 		paddingLeft: 0,

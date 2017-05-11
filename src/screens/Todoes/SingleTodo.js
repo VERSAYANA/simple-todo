@@ -19,27 +19,34 @@ export default class SingleTodo extends React.Component {
       deleteTodo,
       editMode,
       textMode,
-      textTodo
+      textTodo,
+			viewAdditionalNote
     } = this.props;
 
     let checkBox = null;
     if (!todo.completed) {
       checkBox = (
-        <Icon name="checkbox-blank-outline" size={23} color="rgba(0, 0, 0, 0.87)" />
+        <Icon
+          name="checkbox-blank-outline"
+          size={23}
+          color="rgba(0, 0, 0, 0.80)"
+        />
       );
     } else {
-      checkBox = (
-        <Icon name="checkbox-marked" size={23} color="#FF4081" />
-      );
+      checkBox = <Icon name="checkbox-marked" size={23} color="#FF4081" />;
     }
 
     let todoTitle = null;
     if (!todo.editText) {
-      todoTitle = <Text style={style.text}>{todo.text}</Text>;
+      if (!todo.completed) {
+        todoTitle = <Text style={style.text}>{todo.text}</Text>;
+      } else {
+        todoTitle = <Text style={style.completedText}>{todo.text}</Text>;
+      }
     } else {
       todoTitle = (
         <TextInput
-					style={style.textInput}
+          style={style.textInput}
           defaultValue={todo.text}
           autoFocus={true}
           onBlur={() => {
@@ -99,6 +106,8 @@ export default class SingleTodo extends React.Component {
                 deleteTodo={deleteTodo}
                 textMode={textMode}
                 id={todo.id}
+								note={todo.note}
+								viewAdditionalNote={viewAdditionalNote}
               />
             : null}
 

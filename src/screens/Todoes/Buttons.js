@@ -6,18 +6,26 @@ import style from './style/Buttons';
 
 export default class Buttons extends React.Component {
   render() {
-		const { id, deleteTodo, textMode } = this.props;
+    const { id, note, deleteTodo, textMode, viewAdditionalNote } = this.props;
     return (
       <View style={style.row}>
 
-        <TouchableNativeFeedback onPress={() => { deleteTodo(id) }}>
+        <TouchableNativeFeedback
+          onPress={() => {
+            deleteTodo(id);
+          }}
+        >
           <View style={style.container}>
             <Icon name="delete" size={19} color="rgba(0, 0, 0, 0.87)" />
             <Text style={style.text}>Delete</Text>
           </View>
         </TouchableNativeFeedback>
 
-        <TouchableNativeFeedback onPress={() => { textMode(id) }}>
+        <TouchableNativeFeedback
+          onPress={() => {
+            textMode(id);
+          }}
+        >
           <View style={style.container}>
             <Icon name="pencil" size={19} color="rgba(0, 0, 0, 0.87)" />
             <Text style={style.text}>Edit</Text>
@@ -31,7 +39,11 @@ export default class Buttons extends React.Component {
           </View>
         </TouchableNativeFeedback>
 
-        <TouchableNativeFeedback>
+        <TouchableNativeFeedback
+          onPress={() => {
+            viewAdditionalNote(id, note);
+          }}
+        >
           <View style={style.container}>
             <Icon
               name="note-plus-outline"

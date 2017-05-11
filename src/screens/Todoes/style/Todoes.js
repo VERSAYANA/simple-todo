@@ -22,7 +22,7 @@ const style = StyleSheet.create({
 		flex: 1,
     paddingLeft: 0,
   	marginLeft: 0,
-
+		color: 'rgba(0, 0, 0, 0.68)',
 	},
 	checkBox: {
 		paddingLeft: 16,

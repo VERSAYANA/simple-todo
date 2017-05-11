@@ -51,7 +51,7 @@ export default class Lists extends React.Component {
     this.props.navigator.setButtons({
       fab: {
         collapsedId: 'new-list',
-				collapsedIcon: require('../../icons/plus-white-48.png'),
+				collapsedIcon: require('../../icons/plus-60-white.png'),
         backgroundColor: '#FF4081'
       },
     });
@@ -83,7 +83,7 @@ export default class Lists extends React.Component {
       navigatorButtons: {
         fab: {
           collapsedId: 'new-todo',
-					collapsedIcon: require('../../icons/plus-white-48.png'),
+					collapsedIcon: require('../../icons/plus-60-white.png'),
           backgroundColor: '#FF4081'
         }
       }
@@ -114,7 +114,7 @@ export default class Lists extends React.Component {
           />
         ))}
 
-        <View style={{ height: 80 }}>
+        <View style={{ height: 85 }}>
           {this.state.showTextInput
             ? <TextInput
                 autoFocus={true}

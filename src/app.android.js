@@ -23,7 +23,7 @@ Navigation.startSingleScreenApp({
 		navigatorButtons: {
 			fab: {
 				collapsedId: 'new-list',
-				collapsedIcon: require('./icons/plus-white-48.png'),
+				collapsedIcon: require('./icons/plus-60-white.png'),
 				backgroundColor: '#FF4081'
 			}
 		}

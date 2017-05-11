@@ -18,6 +18,7 @@ export default class Lists extends React.Component {
     this.state = {
       showTextInput: false
     };
+		this.viewAdditionalNote = this.viewAdditionalNote.bind(this);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
@@ -52,7 +53,7 @@ export default class Lists extends React.Component {
     this.props.navigator.setButtons({
       fab: {
         collapsedId: 'new-todo',
-        collapsedIcon: require('../../icons/plus-white-48.png'),
+        collapsedIcon: require('../../icons/plus-60-white.png'),
         backgroundColor: '#FF4081'
       }
     });
@@ -64,6 +65,34 @@ export default class Lists extends React.Component {
       this.showTextInput(true);
     }
   }
+
+	viewAdditionalNote(id, note) {
+		this.props.navigator.showModal({
+			screen: 'simpletodo.AdditionalNote',
+			title: 'Note',
+			animated: true,
+			passProps: {
+				id,
+				note,
+			},
+			navigatorStyle: {
+				statusBarColor: '#D81B60',
+				navBarBackgroundColor: '#EC407A',
+				navBarTextColor: 'white',
+				navBarButtonColor: 'white',
+				screenBackgroundColor: '#FAFAFA',
+			},
+			navigatorButtons: {
+				rightButtons: [{
+			    id: 'done-note',
+					icon: require('../../icons/check-74-white.png'),
+			    buttonColor: 'white',
+			  }],
+			}
+		});
+	}
+
+
 
   render() {
     const {
@@ -79,7 +108,6 @@ export default class Lists extends React.Component {
 			textMode,
 			textTodo,
     } = this.props;
-    console.log(this.props);
 
     return (
       <ScrollView
@@ -108,6 +136,7 @@ export default class Lists extends React.Component {
             deleteTodo={deleteTodo}
 						textMode={textMode}
 						textTodo={textTodo}
+						viewAdditionalNote={this.viewAdditionalNote}
           />
         ))}
 
@@ -118,7 +147,7 @@ export default class Lists extends React.Component {
                   style={style.checkBox}
                   name="checkbox-blank-outline"
                   size={23}
-                  color="#757575"
+                  color="rgba(0, 0, 0, 0.68)"
                 />
                 <TextInput
                   autoFocus={true}

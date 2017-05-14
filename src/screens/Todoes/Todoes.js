@@ -18,7 +18,7 @@ export default class Lists extends React.Component {
     this.state = {
       showTextInput: false
     };
-		this.viewAdditionalNote = this.viewAdditionalNote.bind(this);
+    this.viewAdditionalNote = this.viewAdditionalNote.bind(this);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
@@ -66,33 +66,33 @@ export default class Lists extends React.Component {
     }
   }
 
-	viewAdditionalNote(id, note) {
-		this.props.navigator.showModal({
-			screen: 'simpletodo.AdditionalNote',
-			title: 'Note',
-			animated: true,
-			passProps: {
-				id,
-				note,
-			},
-			navigatorStyle: {
-				statusBarColor: '#D81B60',
-				navBarBackgroundColor: '#EC407A',
-				navBarTextColor: 'white',
-				navBarButtonColor: 'white',
-				screenBackgroundColor: '#FAFAFA',
-			},
-			navigatorButtons: {
-				rightButtons: [{
-			    id: 'done-note',
-					icon: require('../../icons/check-74-white.png'),
-			    buttonColor: 'white',
-			  }],
-			}
-		});
-	}
-
-
+  viewAdditionalNote(id, note) {
+    this.props.navigator.showModal({
+      screen: 'simpletodo.AdditionalNote',
+      title: 'Note',
+      animated: true,
+      passProps: {
+        id,
+        note
+      },
+      navigatorStyle: {
+        statusBarColor: '#D81B60',
+        navBarBackgroundColor: '#EC407A',
+        navBarTextColor: 'white',
+        navBarButtonColor: 'white',
+        screenBackgroundColor: '#FAFAFA'
+      },
+      navigatorButtons: {
+        rightButtons: [
+          {
+            id: 'done-note',
+            icon: require('../../icons/check-74-white.png'),
+            buttonColor: 'white'
+          }
+        ]
+      }
+    });
+  }
 
   render() {
     const {
@@ -105,8 +105,9 @@ export default class Lists extends React.Component {
       complete,
       editMode,
       deleteTodo,
-			textMode,
-			textTodo,
+      textMode,
+      textTodo,
+			dateTodo
     } = this.props;
 
     return (
@@ -119,13 +120,13 @@ export default class Lists extends React.Component {
           <View style={{ paddingLeft: 16 }}>
             <Text>Show completed todoes</Text>
           </View>
-          <Switch
-            style={{ paddingRight: 16 }}
-            value={filter}
-            onValueChange={() => {
-              toggleFilter();
-            }}
-          />
+            <Switch
+              style={{ marginRight: 6 }}
+              value={filter}
+              onValueChange={() => {
+                toggleFilter();
+              }}
+            />
         </View>
         {todoes.map((todo, i) => (
           <SingleTodo
@@ -134,9 +135,10 @@ export default class Lists extends React.Component {
             complete={complete}
             editMode={editMode}
             deleteTodo={deleteTodo}
-						textMode={textMode}
-						textTodo={textTodo}
-						viewAdditionalNote={this.viewAdditionalNote}
+            textMode={textMode}
+            textTodo={textTodo}
+            viewAdditionalNote={this.viewAdditionalNote}
+						dateTodo={dateTodo}
           />
         ))}
 

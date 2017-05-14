@@ -66,7 +66,9 @@ const todo = (state, action) => {
 			if (state.id === action.id) {
 				return {
 					...state,
-					date: action.date
+					year: action.year,
+					month: action.month,
+					day: action.day
 				}
 			}
 

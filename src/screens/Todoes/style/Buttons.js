@@ -9,7 +9,7 @@ const style = StyleSheet.create({
 		height: 45,
 	},
 	container: {
-		width: (Dimensions.get('window').width / 4) - 10,
+		width: (Dimensions.get('window').width / 5) - 10,
 		justifyContent: 'center',
 		alignItems: 'center',
 	},

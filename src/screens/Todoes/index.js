@@ -56,9 +56,11 @@ const mapDispatchToProps = {
     type: 'TODO_TEXT_MODE',
     id
   }),
-  dateTodo: (date, id) => ({
+  dateTodo: (year, month, day, id) => ({
     type: 'TODO_DATE',
-    date,
+    year,
+		month,
+		day,
     id
   })
 };

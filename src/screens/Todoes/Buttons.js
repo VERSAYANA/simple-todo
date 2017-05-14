@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableNativeFeedback } from 'react-native';
+import { View, Text, TouchableNativeFeedback, DatePickerAndroid } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import style from './style/Buttons';
 
 export default class Buttons extends React.Component {
+  showDatePicker = async (id, options) => {
+    try {
+      const { action, year, month, day } = await DatePickerAndroid.open(
+        options
+      );
+      if (action !== DatePickerAndroid.dismissedAction) {
+        const { dateTodo } = this.props;
+        dateTodo(year, month, day, id);
+      }
+    } catch ({ code, message }) {
+      console.warn('Cannot open date picker', message);
+    }
+  };
+
   render() {
     const { id, note, deleteTodo, textMode, viewAdditionalNote } = this.props;
     return (
@@ -21,20 +35,20 @@ export default class Buttons extends React.Component {
           </View>
         </TouchableNativeFeedback>
 
-        <TouchableNativeFeedback
-          onPress={() => {
-            textMode(id);
-          }}
-        >
-          <View style={style.container}>
-            <Icon name="pencil" size={19} color="rgba(0, 0, 0, 0.87)" />
-            <Text style={style.text}>Edit</Text>
-          </View>
-        </TouchableNativeFeedback>
-
         <TouchableNativeFeedback>
           <View style={style.container}>
             <Icon name="alarm-plus" size={19} color="rgba(0, 0, 0, 0.87)" />
+            <Text style={style.text}>Reminder</Text>
+          </View>
+        </TouchableNativeFeedback>
+
+        <TouchableNativeFeedback
+          onPress={() => {
+            this.showDatePicker(id, {});
+          }}
+        >
+          <View style={style.container}>
+            <Icon name="calendar-plus" size={19} color="rgba(0, 0, 0, 0.87)" />
             <Text style={style.text}>Reminder</Text>
           </View>
         </TouchableNativeFeedback>
@@ -51,6 +65,17 @@ export default class Buttons extends React.Component {
               color="rgba(0, 0, 0, 0.87)"
             />
             <Text style={style.text}>Note</Text>
+          </View>
+        </TouchableNativeFeedback>
+
+        <TouchableNativeFeedback
+          onPress={() => {
+            textMode(id);
+          }}
+        >
+          <View style={style.container}>
+            <Icon name="pencil" size={19} color="rgba(0, 0, 0, 0.87)" />
+            <Text style={style.text}>Edit</Text>
           </View>
         </TouchableNativeFeedback>
 

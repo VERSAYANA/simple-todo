@@ -20,7 +20,8 @@ export default class SingleTodo extends React.Component {
       editMode,
       textMode,
       textTodo,
-			viewAdditionalNote
+			viewAdditionalNote,
+			dateTodo,
     } = this.props;
 
     let checkBox = null;
@@ -108,6 +109,7 @@ export default class SingleTodo extends React.Component {
                 id={todo.id}
 								note={todo.note}
 								viewAdditionalNote={viewAdditionalNote}
+								dateTodo={dateTodo}
               />
             : null}
 

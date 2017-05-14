@@ -119,9 +119,7 @@ export default class Lists extends React.Component {
             ? <TextInput
                 autoFocus={true}
                 style={style.textInput}
-                placeholder={'New List'}
                 underlineColorAndroid={'transparent'}
-                placeholderTextColor={'white'}
                 onSubmitEditing={value => {
 									this.showTextInput(false);
                   createList(value.nativeEvent.text.trim());

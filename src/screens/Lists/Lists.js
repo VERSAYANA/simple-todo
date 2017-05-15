@@ -63,6 +63,11 @@ export default class Lists extends React.Component {
     if (event.id === 'new-list') {
       this.showTextInput(true);
     }
+		if (event.id === 'side-menu') {
+			this.props.navigator.toggleDrawer({
+		  	side: 'right',
+			});
+		}
   }
 
   viewList(title) {
@@ -81,6 +86,12 @@ export default class Lists extends React.Component {
 				screenBackgroundColor: '#FAFAFA',
       },
       navigatorButtons: {
+				rightButtons: [
+					{
+						id: 'side-menu',
+						icon: require('../../icons/menu-74-white.png')
+					}
+				],
         fab: {
           collapsedId: 'new-todo',
 					collapsedIcon: require('../../icons/plus-60-white.png'),

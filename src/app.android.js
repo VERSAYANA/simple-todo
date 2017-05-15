@@ -11,6 +11,8 @@ const navigatorStyle = {
   navBarBackgroundColor: '#00BCD4',
   navBarTextColor: 'white',
 	screenBackgroundColor: '#FAFAFA',
+	navBarHideOnScroll: true,
+
 };
 
 
@@ -21,11 +23,22 @@ Navigation.startSingleScreenApp({
     title: 'Lists',
     navigatorStyle,
 		navigatorButtons: {
+			rightButtons: [
+				{
+					id: 'side-menu',
+					icon: require('./icons/menu-74-white.png')
+				}
+			],
 			fab: {
 				collapsedId: 'new-list',
 				collapsedIcon: require('./icons/plus-60-white.png'),
 				backgroundColor: '#FF4081'
 			}
+		},
+  },
+	drawer: {
+		right: {
+			screen: 'simpletodo.SideMenu'
 		}
-  }
+	}
 });

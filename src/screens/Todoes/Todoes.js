@@ -5,7 +5,7 @@ import {
   View,
   TextInput,
   Text,
-  Switch
+  // Switch
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -61,9 +61,14 @@ export default class Lists extends React.Component {
 
   onNavigatorEvent(event) {
     if (event.id === 'new-todo') {
-      _scrollView.scrollToEnd({ animated: true });
+      // _scrollView.scrollToEnd({ animated: true });
       this.showTextInput(true);
     }
+		if (event.id === 'side-menu') {
+			this.props.navigator.toggleDrawer({
+				side: 'right',
+			});
+		}
   }
 
   viewAdditionalNote(id, note) {
@@ -112,11 +117,11 @@ export default class Lists extends React.Component {
 
     return (
       <ScrollView
-        ref={scrollView => {
-          _scrollView = scrollView;
-        }}
+        // ref={scrollView => {
+        //   _scrollView = scrollView;
+        // }}
       >
-        <View style={style.switchRow}>
+        {/* <View style={style.switchRow}>
           <View style={{ paddingLeft: 16 }}>
             <Text>Show completed todoes</Text>
           </View>
@@ -127,7 +132,7 @@ export default class Lists extends React.Component {
                 toggleFilter();
               }}
             />
-        </View>
+        </View> */}
         {todoes.map((todo, i) => (
           <SingleTodo
             key={i}

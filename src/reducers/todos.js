@@ -107,10 +107,10 @@ const todos = (state = [], action) => {
 			return state.map(t => todo(t, action));
 
 		case "CLEAR_COMPLETED":
-			if(action.list === 'All') {
+			// if(action.list === 'All') {
 				return state.filter(x => !x.completed)
-			}
-			return state.filter(x => x.list === action.list && !x.completed)
+			// }
+			// return state.filter(x => x.list === action.list && !x.completed)
 
 		case "ADDITIONAL_NOTE":
 			return state.map(t => todo(t, action));

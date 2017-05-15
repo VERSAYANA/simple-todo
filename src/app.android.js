@@ -10,35 +10,34 @@ const navigatorStyle = {
   statusBarColor: '#0097A7',
   navBarBackgroundColor: '#00BCD4',
   navBarTextColor: 'white',
-	screenBackgroundColor: '#FAFAFA',
-	navBarHideOnScroll: true,
+  screenBackgroundColor: '#FAFAFA',
+  navBarHideOnScroll: true,
 
+	topTabTextColor: 'rgba(255, 255, 255, 0.8)',
+	selectedTopTabTextColor: 'rgba(255, 255, 255, 1)',
+	selectedTopTabIndicatorHeight: 2,
+	selectedTopTabIndicatorColor: 'white',
 };
-
-
 
 Navigation.startSingleScreenApp({
   screen: {
-    screen: 'simpletodo.Lists',
-    title: 'Lists',
+    screen: 'simpletodo.TopTabsScreen',
+    title: 'Simple Todo',
     navigatorStyle,
-		navigatorButtons: {
-			rightButtons: [
-				{
-					id: 'side-menu',
-					icon: require('./icons/menu-74-white.png')
-				}
-			],
-			fab: {
-				collapsedId: 'new-list',
-				collapsedIcon: require('./icons/plus-60-white.png'),
-				backgroundColor: '#FF4081'
-			}
-		},
+    topTabs: [
+      {
+        screenId: 'simpletodo.Lists',
+        title: 'Lists'
+      },
+      {
+        screenId: 'simpletodo.Test',
+        title: '2Weeks'
+      }
+    ]
   },
-	drawer: {
-		right: {
-			screen: 'simpletodo.SideMenu'
-		}
-	}
+  drawer: {
+    right: {
+      screen: 'simpletodo.SideMenu'
+    }
+  }
 });

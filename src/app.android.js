@@ -30,7 +30,7 @@ Navigation.startSingleScreenApp({
         title: 'Lists'
       },
       {
-        screenId: 'simpletodo.Test',
+        screenId: 'simpletodo.2Weeks',
         title: '2Weeks'
       }
     ]

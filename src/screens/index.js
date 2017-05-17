@@ -5,7 +5,7 @@ import Todoes from './Todoes';
 import AdditionalNote from './AdditionalNote';
 import SideMenu from './SideMenu';
 import TopTabsScreen from './TopTabsScreen';
-import Test from './Test';
+import _2Weeks from './2Weeks';
 
 export function registerScreens(store, Provider) {
   Navigation.registerComponent(
@@ -39,8 +39,8 @@ export function registerScreens(store, Provider) {
     Provider
   );
   Navigation.registerComponent(
-    'simpletodo.Test',
-    () => Test,
+    'simpletodo.2Weeks',
+    () => _2Weeks,
     store,
     Provider
   );

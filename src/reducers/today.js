@@ -1,8 +1,8 @@
-const id = (state = false, action) => {
+const today = (state = false, action) => {
   if (action.type === "TODAY") {
-    return state + 1;
+    return action.today;
   }
   return state;
 };
 
-export default id;
+export default today;

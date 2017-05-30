@@ -21,9 +21,6 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = {
-  toggleFilter: () => ({
-    type: 'TOGGLE_FILTER'
-  }),
   addTodo: (text, list, id) => ({
     type: 'ADD_TODO',
     text,
@@ -56,12 +53,10 @@ const mapDispatchToProps = {
     type: 'TODO_TEXT_MODE',
     id
   }),
-  dateTodo: (year, month, day, id) => ({
+  dateTodo: (date, id) => ({
     type: 'TODO_DATE',
-    year,
-		month,
-		day,
-    id
+    date,
+		id
   })
 };
 

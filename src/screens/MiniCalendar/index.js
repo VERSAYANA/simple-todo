@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import _2Weeks from './2Weeks';
+import MiniCalendar from './MiniCalendar';
 
-const cal = (today, todos, week) => {
-  const date = new Date(today);
-  date.setDate(date.getDate() + (week - date.getDay()));
+const cal = (today, todos, range) => {
+	const date = new Date(today);
+	const rangeL = range.end - range.start
+  date.setDate(date.getDate() + range.start);
   let array = [];
-  for (i = 0; i <= 6; i++) {
+  for (i = 0; i <= rangeL; i++) {
     console.log(date.toDateString());
     array.push(todos.filter(t => t.date === date.toDateString()));
     date.setDate(date.getDate() + 1);
@@ -14,10 +15,13 @@ const cal = (today, todos, week) => {
   return array;
 };
 
+
+
 const mapStateToProps = state => ({
+	id: state.id,
   today: state.today,
-  thisWeek: cal(state.today, state.todos, 0),
-  nextWeek: cal(state.today, state.todos, 7)
+	start: state.miniCalendar.start,
+	miniCalendar: cal(state.today, state.todos, state.miniCalendar)
 });
 
 const mapDispatchToProps = {
@@ -25,11 +29,12 @@ const mapDispatchToProps = {
     type: 'TODAY',
     today
   }),
-  addTodo: (text, list, id) => ({
+  addTodo: (text, list, date, id) => ({
     type: 'ADD_TODO',
     text,
     list,
-    id
+		date,
+    id,
   }),
   complete: id => ({
     type: 'COMPLETE_TODO',
@@ -64,4 +69,4 @@ const mapDispatchToProps = {
   })
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(_2Weeks);
+export default connect(mapStateToProps, mapDispatchToProps)(MiniCalendar);

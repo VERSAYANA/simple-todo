@@ -4,7 +4,7 @@ import {
   ScrollView,
   View,
   TextInput,
-  Text,
+  Text
   // Switch
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -64,11 +64,11 @@ export default class Lists extends React.Component {
       // _scrollView.scrollToEnd({ animated: true });
       this.showTextInput(true);
     }
-		if (event.id === 'side-menu') {
-			this.props.navigator.toggleDrawer({
-				side: 'right',
-			});
-		}
+    if (event.id === 'side-menu') {
+      this.props.navigator.toggleDrawer({
+        side: 'right'
+      });
+    }
   }
 
   viewAdditionalNote(id, note) {
@@ -112,14 +112,14 @@ export default class Lists extends React.Component {
       deleteTodo,
       textMode,
       textTodo,
-			dateTodo
+      dateTodo
     } = this.props;
 
     return (
       <ScrollView
-        // ref={scrollView => {
-        //   _scrollView = scrollView;
-        // }}
+      // ref={scrollView => {
+      //   _scrollView = scrollView;
+      // }}
       >
         {/* <View style={style.switchRow}>
           <View style={{ paddingLeft: 16 }}>
@@ -143,7 +143,7 @@ export default class Lists extends React.Component {
             textMode={textMode}
             textTodo={textTodo}
             viewAdditionalNote={this.viewAdditionalNote}
-						dateTodo={dateTodo}
+            dateTodo={dateTodo}
           />
         ))}
 

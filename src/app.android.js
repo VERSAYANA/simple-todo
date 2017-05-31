@@ -30,8 +30,8 @@ Navigation.startSingleScreenApp({
         title: 'Lists'
       },
       {
-        screenId: 'simpletodo.2Weeks',
-        title: '2Weeks'
+        screenId: 'simpletodo.MiniCalendar',
+        title: 'MiniCalendar'
       }
     ]
   },

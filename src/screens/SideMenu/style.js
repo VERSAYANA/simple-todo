@@ -6,18 +6,30 @@ const style = StyleSheet.create({
     backgroundColor: 'white',
 		// opacity: 0.85
   },
+	cat: {
+		borderBottomColor: 'rgba(0, 0, 0, 0.12)',
+		borderBottomWidth: 1,
+	},
+	catTitle: {
+		paddingLeft: 16,
+		marginTop: 6,
+		marginBottom: 16,
+	},
+	catText: {
+		color: '#00BCD4',
+		fontSize: 11,
+	},
 	row: {
-		height: 50,
+		height: 45,
 		paddingLeft: 16,
 		paddingRight: 16,
 		flexDirection: 'row',
 		alignItems: 'center',
-		borderBottomWidth: 1,
-		borderBottomColor: 'rgba(0, 0, 0, 0.12)',
-	},
-	showCompleted: {
 		justifyContent: 'space-between',
-	}
+	},
+	picker: {
+		width: 80,
+	},
 });
 
 export default style;

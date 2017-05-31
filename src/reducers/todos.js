@@ -5,7 +5,8 @@ const todo = (state, action) => {
         text: action.text,
         completed: false,
         list: action.list,
-        id: action.id
+        id: action.id,
+				date: action.date,
       };
 
     case "COMPLETE_TODO":

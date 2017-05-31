@@ -3,7 +3,8 @@ import {
   View,
   Text,
   TouchableNativeFeedback,
-  DatePickerAndroid
+  DatePickerAndroid,
+  Alert
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -30,6 +31,7 @@ export default class Buttons extends React.Component {
       note,
       date,
       deleteTodo,
+      dateTodo,
       textMode,
       viewAdditionalNote
     } = this.props;
@@ -77,7 +79,27 @@ export default class Buttons extends React.Component {
 
         <TouchableNativeFeedback
           onPress={() => {
-            this.showDatePicker(id, {});
+            if (!date) {
+              this.showDatePicker(id, {});
+            } else {
+              Alert.alert(`Date`, `${date}`, [
+                {
+                  text: 'CANCEL'
+                },
+                {
+                  text: 'Remove',
+                  onPress: () => {
+                    dateTodo(false, id);
+                  }
+                },
+                {
+                  text: 'Change',
+                  onPress: () => {
+                    this.showDatePicker(id, { date: new Date(date) });
+                  }
+                }
+              ]);
+            }
           }}
         >
           <View style={style.container}>
@@ -92,7 +114,7 @@ export default class Buttons extends React.Component {
           }}
         >
           <View style={style.container}>
-						{noteIcon}
+            {noteIcon}
             <Text style={style.text}>Note</Text>
           </View>
         </TouchableNativeFeedback>

@@ -23,10 +23,16 @@ const style = StyleSheet.create({
 	titleColoredText: {
 		color: '#00BCD4',
 	},
-	plus: {
-		height: 50,
+	listAdditions: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		// justifyContent: 'center',
+		height: 55,
+	},
+	additions: {
 		paddingLeft: 16,
 		paddingRight: 16,
+		height: 55,
 		justifyContent: 'center',
 	},
 	textInputContainer: {

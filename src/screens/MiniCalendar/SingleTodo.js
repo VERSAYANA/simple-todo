@@ -96,7 +96,7 @@ export default class SingleTodo extends React.Component {
                 ? <Icon
 										style={style.icon}
                     name="note-outline"
-                    size={19}
+                    size={18}
                     color="rgba(0, 0, 0, 0.54)"
                   />
                 : null}
@@ -104,7 +104,7 @@ export default class SingleTodo extends React.Component {
                 ? <Icon
 									style={style.icon}
                     name="calendar-blank"
-                    size={19}
+                    size={18}
                     color="rgba(0, 0, 0, 0.54)"
                   />
                 : null} */}

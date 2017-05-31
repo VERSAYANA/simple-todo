@@ -87,7 +87,7 @@ class SideMenu extends React.Component {
 
 		        <Picker
 							style={style.picker}
-		          selectedValue={miniCalendar.start}
+		          selectedValue={miniCalendar.starst}
 		          onValueChange={start => miniCal(start, miniCalendar.end)}
 		        >
 		          <Picker.Item label="-6" value={-6} />

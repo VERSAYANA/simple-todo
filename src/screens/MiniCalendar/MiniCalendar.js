@@ -89,6 +89,10 @@ export default class MiniCalendar extends React.Component {
     return date.toDateString();
   }
 
+  // count(todos) {
+  //   return todos.filter(t => !t.completed).length;
+  // }
+
   render() {
     const {
       miniCalendar,
@@ -104,6 +108,8 @@ export default class MiniCalendar extends React.Component {
       textMode,
       dateTodo
     } = this.props;
+
+    console.log(miniCalendar);
 
     return (
       <ScrollView>
@@ -122,16 +128,24 @@ export default class MiniCalendar extends React.Component {
                   {this.dayTitle(i, start)}
                 </Text>
 
-                <TouchableNativeFeedback
-                  onPress={() => {
-                    this.showDay(i);
-                    this.showInput(i);
-                  }}
-                >
-                  <View style={style.plus}>
-                    <Icon name="plus" size={20} />
-                  </View>
-                </TouchableNativeFeedback>
+                <View style={style.listAdditions}>
+{/* 
+                  <View>
+                    <Text>{this.count(todos)}</Text>
+                  </View> */}
+
+                  <TouchableNativeFeedback
+                    onPress={() => {
+                      this.showDay(i);
+                      this.showInput(i);
+                    }}
+                  >
+                    <View style={style.additions}>
+                      <Icon name="plus" size={20} />
+                    </View>
+                  </TouchableNativeFeedback>
+
+                </View>
 
               </View>
             </TouchableNativeFeedback>
@@ -171,7 +185,7 @@ export default class MiniCalendar extends React.Component {
                         value.nativeEvent.text.trim(),
                         'All',
                         this.calDate(i, start, today),
-												id
+                        id
                       );
                     }}
                   />

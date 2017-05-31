@@ -72,8 +72,8 @@ export default class Buttons extends React.Component {
 
         <TouchableNativeFeedback>
           <View style={style.container}>
-            <Icon name="alarm-plus" size={19} color="rgba(0, 0, 0, 0.87)" />
-            <Text style={style.text}>Reminder</Text>
+            <Icon name="format-list-bulleted" size={19} color="rgba(0, 0, 0, 0.87)" />
+            <Text style={style.text}>List</Text>
           </View>
         </TouchableNativeFeedback>
 
@@ -104,7 +104,7 @@ export default class Buttons extends React.Component {
         >
           <View style={style.container}>
             {calendarIcon}
-            <Text style={style.text}>Reminder</Text>
+            <Text style={style.text}>Date</Text>
           </View>
         </TouchableNativeFeedback>
 

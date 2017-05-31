@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import MiniCalendar from './MiniCalendar';
 
 const cal = (today, todos, range) => {
-	const date = new Date(today);
-	const rangeL = range.end - range.start
+  const date = new Date(today);
+  const rangeL = range.end - range.start;
   date.setDate(date.getDate() + range.start);
   let array = [];
   for (i = 0; i <= rangeL; i++) {
@@ -15,13 +15,24 @@ const cal = (today, todos, range) => {
   return array;
 };
 
-
+const compCal = (todos, filter) => {
+  if (filter) {
+    return [
+      ...todos.filter(x => !x.completed),
+      ...todos.filter(x => x.completed)
+    ];
+  } else return todos.filter(x => !x.completed);
+};
 
 const mapStateToProps = state => ({
-	id: state.id,
+  id: state.id,
   today: state.today,
-	start: state.miniCalendar.start,
-	miniCalendar: cal(state.today, state.todos, state.miniCalendar)
+  start: state.miniCalendar.start,
+  miniCalendar: cal(
+    state.today,
+    compCal(state.todos, state.filter),
+    state.miniCalendar
+  )
 });
 
 const mapDispatchToProps = {
@@ -33,8 +44,8 @@ const mapDispatchToProps = {
     type: 'ADD_TODO',
     text,
     list,
-		date,
-    id,
+    date,
+    id
   }),
   complete: id => ({
     type: 'COMPLETE_TODO',

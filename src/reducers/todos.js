@@ -82,6 +82,15 @@ const todo = (state, action) => {
 				}
 			}
 
+		case "CHANGE_LIST":
+			if (state.id === action.id) {
+				return {
+					...state,
+					list: action.list
+				}
+			}
+
+
 
 
     default:
@@ -130,6 +139,9 @@ const todos = (state = [], action) => {
 			return state.map(t => todo(t, action));
 
 		case "TODO_TIME":
+			return state.map(t => todo(t, action));
+
+		case "CHANGE_LIST":
 			return state.map(t => todo(t, action));
 
 

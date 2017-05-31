@@ -11,7 +11,7 @@ const style = StyleSheet.create({
 		backgroundColor: 'white',
 	},
 	titleContainer: {
-		height: 50,
+		height: 54,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',

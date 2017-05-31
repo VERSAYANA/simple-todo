@@ -11,7 +11,7 @@ const navigatorStyle = {
   navBarBackgroundColor: '#00BCD4',
   navBarTextColor: 'white',
   screenBackgroundColor: '#FAFAFA',
-  navBarHideOnScroll: true,
+  // navBarHideOnScroll: true,
 
 	topTabTextColor: 'rgba(255, 255, 255, 0.8)',
 	selectedTopTabTextColor: 'rgba(255, 255, 255, 1)',

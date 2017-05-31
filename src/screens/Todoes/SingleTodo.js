@@ -94,7 +94,16 @@ export default class SingleTodo extends React.Component {
             <View style={style.iconsContainer}>
               {todo.note
                 ? <Icon
+										style={style.icon}
                     name="note-outline"
+                    size={19}
+                    color="rgba(0, 0, 0, 0.54)"
+                  />
+                : null}
+              {todo.date
+                ? <Icon
+									style={style.icon}
+                    name="calendar-blank"
                     size={19}
                     color="rgba(0, 0, 0, 0.54)"
                   />
@@ -108,6 +117,7 @@ export default class SingleTodo extends React.Component {
                 textMode={textMode}
                 id={todo.id}
 								note={todo.note}
+								date={todo.date}
 								viewAdditionalNote={viewAdditionalNote}
 								dateTodo={dateTodo}
               />

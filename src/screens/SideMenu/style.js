@@ -28,7 +28,7 @@ const style = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	picker: {
-		width: 80,
+		width: 90,
 	},
 });
 

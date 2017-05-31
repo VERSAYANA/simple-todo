@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableNativeFeedback, DatePickerAndroid } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableNativeFeedback,
+  DatePickerAndroid
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import style from './style/Buttons';
@@ -20,7 +25,35 @@ export default class Buttons extends React.Component {
   };
 
   render() {
-    const { id, note, deleteTodo, textMode, viewAdditionalNote } = this.props;
+    const {
+      id,
+      note,
+      date,
+      deleteTodo,
+      textMode,
+      viewAdditionalNote
+    } = this.props;
+    let calendarIcon = '';
+    if (date) {
+      calendarIcon = (
+        <Icon name="calendar-blank" size={19} color="rgba(0, 0, 0, 0.87)" />
+      );
+    } else {
+      calendarIcon = (
+        <Icon name="calendar-plus" size={19} color="rgba(0, 0, 0, 0.87)" />
+      );
+    }
+    let noteIcon = '';
+    if (note) {
+      noteIcon = (
+        <Icon name="note-outline" size={19} color="rgba(0, 0, 0, 0.87)" />
+      );
+    } else {
+      noteIcon = (
+        <Icon name="note-plus-outline" size={19} color="rgba(0, 0, 0, 0.87)" />
+      );
+    }
+
     return (
       <View style={style.row}>
 
@@ -48,7 +81,7 @@ export default class Buttons extends React.Component {
           }}
         >
           <View style={style.container}>
-            <Icon name="calendar-plus" size={19} color="rgba(0, 0, 0, 0.87)" />
+            {calendarIcon}
             <Text style={style.text}>Reminder</Text>
           </View>
         </TouchableNativeFeedback>
@@ -59,11 +92,7 @@ export default class Buttons extends React.Component {
           }}
         >
           <View style={style.container}>
-            <Icon
-              name="note-plus-outline"
-              size={19}
-              color="rgba(0, 0, 0, 0.87)"
-            />
+						{noteIcon}
             <Text style={style.text}>Note</Text>
           </View>
         </TouchableNativeFeedback>

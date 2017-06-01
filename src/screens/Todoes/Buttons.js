@@ -30,10 +30,12 @@ export default class Buttons extends React.Component {
       id,
       note,
       date,
+			list,
       deleteTodo,
       dateTodo,
       textMode,
-      viewAdditionalNote
+      viewAdditionalNote,
+			showListSelector
     } = this.props;
     let calendarIcon = '';
     if (date) {
@@ -70,7 +72,7 @@ export default class Buttons extends React.Component {
           </View>
         </TouchableNativeFeedback>
 
-        <TouchableNativeFeedback>
+        <TouchableNativeFeedback onPress={() => showListSelector(list, id)}>
           <View style={style.container}>
             <Icon name="format-list-bulleted" size={19} color="rgba(0, 0, 0, 0.87)" />
             <Text style={style.text}>List</Text>

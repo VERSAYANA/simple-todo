@@ -22,6 +22,7 @@ export default class SingleTodo extends React.Component {
       textTodo,
 			viewAdditionalNote,
 			dateTodo,
+			showListSelector
     } = this.props;
 
     let checkBox = null;
@@ -118,8 +119,10 @@ export default class SingleTodo extends React.Component {
                 id={todo.id}
 								note={todo.note}
 								date={todo.date}
+								list={todo.list}
 								viewAdditionalNote={viewAdditionalNote}
 								dateTodo={dateTodo}
+								showListSelector={showListSelector}
               />
             : null}
 

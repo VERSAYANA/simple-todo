@@ -6,6 +6,7 @@ import AdditionalNote from './AdditionalNote';
 import SideMenu from './SideMenu';
 import TopTabsScreen from './TopTabsScreen';
 import MiniCalendar from './MiniCalendar';
+import ListSelector from './ListSelector';
 
 export function registerScreens(store, Provider) {
   Navigation.registerComponent(
@@ -41,6 +42,12 @@ export function registerScreens(store, Provider) {
   Navigation.registerComponent(
     'simpletodo.MiniCalendar',
     () => MiniCalendar,
+    store,
+    Provider
+  );
+  Navigation.registerComponent(
+    'simpletodo.ListSelector',
+    () => ListSelector,
     store,
     Provider
   );

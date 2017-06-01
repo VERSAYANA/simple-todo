@@ -19,6 +19,7 @@ export default class Lists extends React.Component {
       showTextInput: false
     };
     this.viewAdditionalNote = this.viewAdditionalNote.bind(this);
+    this.showListSelector = this.showListSelector.bind(this);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
@@ -99,6 +100,19 @@ export default class Lists extends React.Component {
     });
   }
 
+  showListSelector(list, id) {
+    this.props.navigator.showLightBox({
+      screen: 'simpletodo.ListSelector',
+      passProps: {
+        list,
+        id
+      },
+      style: {
+        backgroundBlur: 'dark'
+      }
+    });
+  }
+
   render() {
     const {
       todoes,
@@ -142,8 +156,9 @@ export default class Lists extends React.Component {
             deleteTodo={deleteTodo}
             textMode={textMode}
             textTodo={textTodo}
+						dateTodo={dateTodo}
             viewAdditionalNote={this.viewAdditionalNote}
-            dateTodo={dateTodo}
+						showListSelector={this.showListSelector}
           />
         ))}
 

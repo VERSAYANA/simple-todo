@@ -8,6 +8,7 @@
 	},
 	"dependencies": {
 		"react": "16.0.0-alpha.6",
+		"react-mixin": "2",
 		"react-native": "0.44.0",
 		"react-native-keyboard-aware-scroll-view": "^0.2.8",
 		"react-native-keyboard-aware-scrollview": "^1.1.6",
@@ -15,6 +16,7 @@
 		"react-native-prompt": "^1.0.0",
 		"react-native-vector-icons": "^4.1.1",
 		"react-redux": "^5.0.4",
+		"react-timer-mixin": "^0.13.3",
 		"redux": "^3.6.0",
 		"redux-persist": "^4.8.0",
 		"remote-redux-devtools": "^0.5.10"

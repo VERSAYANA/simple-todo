@@ -6,6 +6,9 @@ const style = StyleSheet.create({
     backgroundColor: 'white',
 		// opacity: 0.85
   },
+	text: {
+		color: 'rgba(0, 0, 0, 0.85)',
+	},
 	cat: {
 		borderBottomColor: 'rgba(0, 0, 0, 0.12)',
 		borderBottomWidth: 1,
@@ -30,6 +33,17 @@ const style = StyleSheet.create({
 	picker: {
 		width: 90,
 	},
+	infoRow: {
+		height: 45,
+		paddingLeft: 16,
+		paddingRight: 16,
+		flexDirection: 'row',
+		alignItems: 'center',
+	},
+	infoText: {
+		color: 'rgba(0, 0, 0, 0.85)',
+		paddingLeft: 16,
+	}
 });
 
 export default style;

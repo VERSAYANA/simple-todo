@@ -7,6 +7,8 @@ import {
   ScrollView,
   TextInput
 } from 'react-native';
+// import reactMixin from 'react-mixin';
+// import TimerMixin from 'react-timer-mixin';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import SingleTodo from './SingleTodo';
@@ -14,6 +16,8 @@ import SingleTodo from './SingleTodo';
 import style from './style/MiniCalendar';
 
 export default class MiniCalendar extends React.Component {
+  // mixins: [TimerMixin];
+
   constructor(props) {
     super(props);
 
@@ -23,15 +27,26 @@ export default class MiniCalendar extends React.Component {
     };
 
     this.viewAdditionalNote = this.viewAdditionalNote.bind(this);
+    this.showListSelector = this.showListSelector.bind(this);
+
     // this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
   componentWillMount() {
     const { today, dateToday } = this.props;
-    const dateNow = new Date().toDateString();
+    const dateNow = new Date();
 
-    if (!today || today !== dateNow) {
-      dateToday(dateNow);
+    // let h = dateNow.getHours();
+    // let m = dateNow.getMinutes();
+    // let s = dateNow.getSeconds();
+    // console.log(h * 60 * 60 * 1000 + m * 60 * 1000 + s * 1000 + 999);
+
+    // this.setTimeout(() => {
+    //   dateNow = new Date();
+    // }, h * 60 * 60 * 1000 + m * 60 * 1000 + s * 1000 + 999);
+
+    if (!today || today !== dateNow.toDateString()) {
+      dateToday(dateNow.toDateString());
     }
   }
 
@@ -59,6 +74,19 @@ export default class MiniCalendar extends React.Component {
             buttonColor: 'white'
           }
         ]
+      }
+    });
+  }
+
+  showListSelector(list, id) {
+    this.props.navigator.showLightBox({
+      screen: 'simpletodo.ListSelector',
+      passProps: {
+        list,
+        id
+      },
+      style: {
+        backgroundBlur: 'dark'
       }
     });
   }
@@ -129,7 +157,7 @@ export default class MiniCalendar extends React.Component {
                 </Text>
 
                 <View style={style.listAdditions}>
-{/* 
+                  {/*
                   <View>
                     <Text>{this.count(todos)}</Text>
                   </View> */}
@@ -160,8 +188,9 @@ export default class MiniCalendar extends React.Component {
                     deleteTodo={deleteTodo}
                     textMode={textMode}
                     textTodo={textTodo}
-                    viewAdditionalNote={this.viewAdditionalNote}
                     dateTodo={dateTodo}
+                    viewAdditionalNote={this.viewAdditionalNote}
+                    showListSelector={this.showListSelector}
                   />
                 ))
               : null}
@@ -199,3 +228,5 @@ export default class MiniCalendar extends React.Component {
     );
   }
 }
+
+// reactMixin(MiniCalendar.prototype, TimerMixin);

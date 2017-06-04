@@ -8,7 +8,6 @@ const cal = (today, todos, range) => {
   date.setDate(date.getDate() + range.start);
   let array = [];
   for (i = 0; i <= rangeL; i++) {
-    console.log(date.toDateString());
     array.push(todos.filter(t => t.date === date.toDateString()));
     date.setDate(date.getDate() + 1);
   }

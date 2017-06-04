@@ -16,7 +16,6 @@ class ListSelector extends React.Component {
 
   render() {
     const { lists, list, id, selectList } = this.props;
-    console.log(this.props);
     return (
       <View style={style.container}>
 

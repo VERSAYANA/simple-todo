@@ -91,8 +91,12 @@ export default class MiniCalendar extends React.Component {
     });
   }
 
-  showDay(selected) {
+  showDay(selected, show) {
+		if(show === selected && selected !== false) {
+			this.setState({ show: false });
+		} else {
     this.setState({ show: selected });
+		}
   }
 
   showInput(selected) {
@@ -137,18 +141,16 @@ export default class MiniCalendar extends React.Component {
       dateTodo
     } = this.props;
 
-    console.log(miniCalendar);
-
     return (
       <ScrollView>
         {miniCalendar.map((todos, i) => (
           <View key={i} style={style.week}>
 
-            <TouchableNativeFeedback onPress={() => this.showDay(i)}>
+            <TouchableNativeFeedback onPress={() => this.showDay(i, this.state.show)}>
               <View style={style.titleContainer}>
                 <Text
                   style={
-                    this.state.show == i
+                    this.state.show === i
                       ? style.titleColoredText
                       : style.titleText
                   }
@@ -178,7 +180,7 @@ export default class MiniCalendar extends React.Component {
               </View>
             </TouchableNativeFeedback>
 
-            {this.state.show == i
+            {this.state.show === i
               ? todos.map((todo, j) => (
                   <SingleTodo
                     key={j}

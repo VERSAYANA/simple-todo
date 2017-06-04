@@ -30,12 +30,12 @@ export default class Buttons extends React.Component {
       id,
       note,
       date,
-			list,
+      list,
       deleteTodo,
       dateTodo,
       textMode,
       viewAdditionalNote,
-			showListSelector
+      showListSelector
     } = this.props;
     let calendarIcon = '';
     if (date) {
@@ -62,9 +62,20 @@ export default class Buttons extends React.Component {
       <View style={style.row}>
 
         <TouchableNativeFeedback
-          onPress={() => {
-            deleteTodo(id);
-          }}
+          onPress={() =>
+            Alert.alert(
+              `Delete Todo`,
+              // `All todoes inside "${title}" will be deleted`,
+              [
+                { text: 'CANCEL' },
+                {
+                  text: 'DELETE',
+                  onPress: () => {
+                    deleteTodo(id);
+                  }
+                }
+              ]
+            )}
         >
           <View style={style.container}>
             <Icon name="delete" size={19} color="rgba(0, 0, 0, 0.87)" />
@@ -74,7 +85,11 @@ export default class Buttons extends React.Component {
 
         <TouchableNativeFeedback onPress={() => showListSelector(list, id)}>
           <View style={style.container}>
-            <Icon name="format-list-bulleted" size={19} color="rgba(0, 0, 0, 0.87)" />
+            <Icon
+              name="format-list-bulleted"
+              size={19}
+              color="rgba(0, 0, 0, 0.87)"
+            />
             <Text style={style.text}>List</Text>
           </View>
         </TouchableNativeFeedback>

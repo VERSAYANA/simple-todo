@@ -65,7 +65,7 @@ export default class Buttons extends React.Component {
           onPress={() =>
             Alert.alert(
               `Delete Todo`,
-              // `All todoes inside "${title}" will be deleted`,
+              null,
               [
                 { text: 'CANCEL' },
                 {

@@ -4,6 +4,7 @@ import {
   Alert,
   View,
   Text,
+	ScrollView,
   TouchableNativeFeedback,
   Linking
 } from 'react-native';
@@ -38,129 +39,133 @@ class SideMenu extends React.Component {
     return (
       <View style={style.container}>
 
-        <View style={style.cat}>
+				<ScrollView>
 
-          <View style={style.catTitle}>
-            <Text style={style.catText}>COMPLETED ITEMS</Text>
-          </View>
+	        <View style={style.cat}>
 
-          <TouchableNativeFeedback
-            onPress={() => {
-              toggleFilter();
-            }}
-          >
-            <View style={style.row}>
+	          <View style={style.catTitle}>
+	            <Text style={style.catText}>COMPLETED ITEMS</Text>
+	          </View>
 
-              <Text style={style.text}>Show completed todes</Text>
+	          <TouchableNativeFeedback
+	            onPress={() => {
+	              toggleFilter();
+	            }}
+	          >
+	            <View style={style.row}>
 
-              {filterIcon}
-            </View>
-          </TouchableNativeFeedback>
+	              <Text style={style.text}>Show completed todes</Text>
 
-          <TouchableNativeFeedback
-            onPress={() =>
-              Alert.alert(
-                `Clear all completed todes`,
-                `Are you sure you want to clear all completed todoes?`,
-                [
-                  { text: 'Cancel' },
-                  {
-                    text: 'Yes',
-                    onPress: () => {
-                      clearCompleted();
-                    }
-                  }
-                ]
-              )}
-          >
-            <View style={style.row}>
+	              {filterIcon}
+	            </View>
+	          </TouchableNativeFeedback>
 
-              <Text style={style.text}>Clear completed todes</Text>
-            </View>
-          </TouchableNativeFeedback>
-        </View>
+	          <TouchableNativeFeedback
+	            onPress={() =>
+	              Alert.alert(
+	                `Clear all completed todes`,
+	                `Are you sure you want to clear all completed todoes?`,
+	                [
+	                  { text: 'Cancel' },
+	                  {
+	                    text: 'Yes',
+	                    onPress: () => {
+	                      clearCompleted();
+	                    }
+	                  }
+	                ]
+	              )}
+	          >
+	            <View style={style.row}>
 
-        <View style={style.cat}>
+	              <Text style={style.text}>Clear completed todes</Text>
+	            </View>
+	          </TouchableNativeFeedback>
+	        </View>
 
-          <View style={style.catTitle}>
-            <Text style={style.catText}>MINICALENDAR</Text>
-          </View>
+	        <View style={style.cat}>
 
-          <View style={style.row}>
+	          <View style={style.catTitle}>
+	            <Text style={style.catText}>MINICALENDAR</Text>
+	          </View>
 
-            <View>
-              <Text style={style.text}>Start</Text>
-            </View>
+	          <View style={style.row}>
 
-            <Picker
-              style={style.picker}
-              selectedValue={miniCalendar.start}
-              onValueChange={start => miniCal(start, miniCalendar.end)}
-            >
-              <Picker.Item label="-6" value={-6} />
-              <Picker.Item label="-5" value={-5} />
-              <Picker.Item label="-4" value={-4} />
-              <Picker.Item label="-3" value={-3} />
-              <Picker.Item label="-2" value={-2} />
-              <Picker.Item label="-1" value={-1} />
-              <Picker.Item label="0" value={0} />
-            </Picker>
+	            <View>
+	              <Text style={style.text}>Start</Text>
+	            </View>
 
-          </View>
+	            <Picker
+	              style={style.picker}
+	              selectedValue={miniCalendar.start}
+	              onValueChange={start => miniCal(start, miniCalendar.end)}
+	            >
+	              <Picker.Item label="-6" value={-6} />
+	              <Picker.Item label="-5" value={-5} />
+	              <Picker.Item label="-4" value={-4} />
+	              <Picker.Item label="-3" value={-3} />
+	              <Picker.Item label="-2" value={-2} />
+	              <Picker.Item label="-1" value={-1} />
+	              <Picker.Item label="0" value={0} />
+	            </Picker>
 
-          <View style={style.row}>
+	          </View>
 
-            <View>
-              <Text style={style.text}>End</Text>
-            </View>
+	          <View style={style.row}>
 
-            <Picker
-              style={style.picker}
-              selectedValue={miniCalendar.end}
-              onValueChange={end => miniCal(miniCalendar.start, end)}
-            >
-              <Picker.Item label="0" value={0} />
-              <Picker.Item label="+1" value={1} />
-              <Picker.Item label="+2" value={2} />
-              <Picker.Item label="+3" value={3} />
-              <Picker.Item label="+4" value={4} />
-              <Picker.Item label="+5" value={5} />
-              <Picker.Item label="+6" value={6} />
-            </Picker>
+	            <View>
+	              <Text style={style.text}>End</Text>
+	            </View>
 
-          </View>
+	            <Picker
+	              style={style.picker}
+	              selectedValue={miniCalendar.end}
+	              onValueChange={end => miniCal(miniCalendar.start, end)}
+	            >
+	              <Picker.Item label="0" value={0} />
+	              <Picker.Item label="+1" value={1} />
+	              <Picker.Item label="+2" value={2} />
+	              <Picker.Item label="+3" value={3} />
+	              <Picker.Item label="+4" value={4} />
+	              <Picker.Item label="+5" value={5} />
+	              <Picker.Item label="+6" value={6} />
+	            </Picker>
 
-        </View>
+	          </View>
 
-        <View style={style.cat}>
+	        </View>
 
-          <View style={style.catTitle}>
-            <Text style={style.catText}>DEVELOPER</Text>
-          </View>
+	        <View style={style.cat}>
 
-          <TouchableNativeFeedback
-            onPress={() => Linking.openURL('https://github.com/VERSAYANA/')}
-          >
-            <View style={style.infoRow}>
-              <Icon name="github-box" size={23} color="rgba(0, 0, 0, 0.87)" />
-              <View>
-                <Text style={style.infoText}>/VERSAYANA</Text>
-              </View>
-            </View>
-          </TouchableNativeFeedback>
+	          <View style={style.catTitle}>
+	            <Text style={style.catText}>DEVELOPER</Text>
+	          </View>
 
-          <TouchableNativeFeedback
-            onPress={() => Linking.openURL('mailto:VERSAYANA@outlook.com')}
-          >
-            <View style={style.infoRow}>
-              <Icon name="email" size={23} color="rgba(0, 0, 0, 0.87)" />
-              <View>
-                <Text style={style.infoText}>VERSAYANA@outlook.com</Text>
-              </View>
-            </View>
-          </TouchableNativeFeedback>
+	          <TouchableNativeFeedback
+	            onPress={() => Linking.openURL('https://github.com/VERSAYANA/')}
+	          >
+	            <View style={style.infoRow}>
+	              <Icon name="github-box" size={23} color="rgba(0, 0, 0, 0.87)" />
+	              <View>
+	                <Text style={style.infoText}>/VERSAYANA</Text>
+	              </View>
+	            </View>
+	          </TouchableNativeFeedback>
 
-        </View>
+	          <TouchableNativeFeedback
+	            onPress={() => Linking.openURL('mailto:VERSAYANA@outlook.com')}
+	          >
+	            <View style={style.infoRow}>
+	              <Icon name="email" size={23} color="rgba(0, 0, 0, 0.87)" />
+	              <View>
+	                <Text style={style.infoText}>VERSAYANA@outlook.com</Text>
+	              </View>
+	            </View>
+	          </TouchableNativeFeedback>
+
+	        </View>
+
+				</ScrollView>
 
       </View>
     );

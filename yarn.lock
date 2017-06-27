@@ -2709,10 +2709,6 @@ oauth-sign@~0.8.1:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
 
-object-assign@^2.0.0:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-2.1.1.tgz#43c36e5d569ff8e4816c4efa8be02d26967c18aa"
-
 object-assign@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/object-assign/-/object-assign-3.0.0.tgz#9bedd5ca0897949bca47e7ff408062d549f587f2"
@@ -3000,32 +2996,11 @@ react-devtools-core@^2.0.8:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-react-mixin@2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/react-mixin/-/react-mixin-2.0.2.tgz#5133570554fa8954b7b847422dbd5e8c7a0a73d0"
-  dependencies:
-    object-assign "^2.0.0"
-    smart-mixin "^1.2.0"
-
-react-native-keyboard-aware-scroll-view@^0.2.8:
-  version "0.2.8"
-  resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-0.2.8.tgz#e9843c0d7467a2e6a2a737883bd9c2b7c7e38e35"
-  dependencies:
-    react-timer-mixin "^0.13.3"
-
-react-native-keyboard-aware-scrollview@^1.1.6:
-  version "1.1.6"
-  resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scrollview/-/react-native-keyboard-aware-scrollview-1.1.6.tgz#3b3524ee829f19974738dc589595a2981189a662"
-
 react-native-navigation@^1.1.63:
-  version "1.1.63"
-  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-1.1.63.tgz#71630cfa4a679b5760b94011422b29e34c33f963"
+  version "1.1.115"
+  resolved "https://registry.yarnpkg.com/react-native-navigation/-/react-native-navigation-1.1.115.tgz#8019abb6934ab7dc70c383ce3cfbb5761626e429"
   dependencies:
     lodash "4.x.x"
-
-react-native-prompt@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/react-native-prompt/-/react-native-prompt-1.0.0.tgz#41e0ec2aa7dd8f12f3a3ee83af9d63c4b670f8a1"
 
 react-native-vector-icons@^4.1.1:
   version "4.1.1"
@@ -3147,7 +3122,7 @@ react-test-renderer@16.0.0-alpha.6:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
 
-react-timer-mixin@^0.13.2, react-timer-mixin@^0.13.3:
+react-timer-mixin@^0.13.2:
   version "0.13.3"
   resolved "https://registry.yarnpkg.com/react-timer-mixin/-/react-timer-mixin-0.13.3.tgz#0da8b9f807ec07dc3e854d082c737c65605b3d22"
 
@@ -3584,10 +3559,6 @@ slash@^1.0.0:
 slide@^1.1.5:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/slide/-/slide-1.1.6.tgz#56eb027d65b4d2dce6cb2e2d32c4d4afc9e1d707"
-
-smart-mixin@^1.2.0:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/smart-mixin/-/smart-mixin-1.2.1.tgz#11a2b3e4628dfee16ac9cb51edd301be21be1452"
 
 sntp@1.x.x:
   version "1.0.9"

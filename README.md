@@ -10,8 +10,8 @@
   </tr>
 
   <tr>
-    <th><img src="https://raw.githubusercontent.com/VERSAYANA/simple-todo/master/ScreenShots/Screenshot_20170627-222059.png" width="400" /></th>
 		<th><img src="https://raw.githubusercontent.com/VERSAYANA/simple-todo/master/ScreenShots/Screenshot_20170627-222038.png" width="400" /></th>
+    <th><img src="https://raw.githubusercontent.com/VERSAYANA/simple-todo/master/ScreenShots/Screenshot_20170627-222059.png" width="400" /></th>
   </tr>
 
   <tr>

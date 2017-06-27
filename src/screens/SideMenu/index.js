@@ -54,7 +54,7 @@ class SideMenu extends React.Component {
 	          >
 	            <View style={style.row}>
 
-	              <Text style={style.text}>Show completed todes</Text>
+	              <Text style={style.text}>Show completed</Text>
 
 	              {filterIcon}
 	            </View>
@@ -78,7 +78,7 @@ class SideMenu extends React.Component {
 	          >
 	            <View style={style.row}>
 
-	              <Text style={style.text}>Clear completed todes</Text>
+	              <Text style={style.text}>Clear completed</Text>
 	            </View>
 	          </TouchableNativeFeedback>
 	        </View>

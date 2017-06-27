@@ -61,10 +61,21 @@ export default class Buttons extends React.Component {
     return (
       <View style={style.row}>
 
-        <TouchableNativeFeedback
-          onPress={() => {
-            deleteTodo(id);
-          }}
+				<TouchableNativeFeedback
+          onPress={() =>
+            Alert.alert(
+              `Delete Todo`,
+              null,
+              [
+                { text: 'CANCEL' },
+                {
+                  text: 'DELETE',
+                  onPress: () => {
+                    deleteTodo(id);
+                  }
+                }
+              ]
+            )}
         >
           <View style={style.container}>
             <Icon name="delete" size={19} color="rgba(0, 0, 0, 0.87)" />

@@ -153,12 +153,12 @@ class SideMenu extends React.Component {
 	          </TouchableNativeFeedback>
 
 	          <TouchableNativeFeedback
-	            onPress={() => Linking.openURL('mailto:VERSAYANA@outlook.com')}
+	            onPress={() => Linking.openURL('mailto:kh.ramtin@gmail.com')}
 	          >
 	            <View style={style.infoRow}>
 	              <Icon name="email" size={23} color="rgba(0, 0, 0, 0.87)" />
 	              <View>
-	                <Text style={style.infoText}>VERSAYANA@outlook.com</Text>
+	                <Text style={style.infoText}>kh.ramtin@gmail.com</Text>
 	              </View>
 	            </View>
 	          </TouchableNativeFeedback>

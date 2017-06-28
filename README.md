@@ -21,7 +21,7 @@
 
   <tr>
 		<th><img src="https://raw.githubusercontent.com/VERSAYANA/simple-todo/master/ScreenShots/Screenshot_20170627-222717.png" width="400" /></th>
-    <th><img src="https://raw.githubusercontent.com/VERSAYANA/simple-todo/master/ScreenShots/Screenshot_20170627-224021.png" width="400" /></th>
+    <th><img src="https://raw.githubusercontent.com/VERSAYANA/simple-todo/master/ScreenShots/Screenshot_20170628-133133.png" width="400" /></th>
   </tr>
 
 </table>

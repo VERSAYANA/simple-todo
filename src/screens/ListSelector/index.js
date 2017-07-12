@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   View,
   Text,
@@ -6,8 +6,9 @@ import {
   TouchableNativeFeedback,
   Dimensions,
   ScrollView
-} from 'react-native';
-import { connect } from 'react-redux';
+} from "react-native";
+import { connect } from "react-redux";
+import { selectList } from "../../actionCreators";
 
 class ListSelector extends React.Component {
   cancel() {
@@ -18,9 +19,8 @@ class ListSelector extends React.Component {
     const { lists, list, id, selectList } = this.props;
     return (
       <View style={style.container}>
-
         <ScrollView>
-          {lists.map((l, i) => (
+          {lists.map((l, i) =>
             <TouchableNativeFeedback
               key={i}
               onPress={() => {
@@ -34,7 +34,7 @@ class ListSelector extends React.Component {
                 </Text>
               </View>
             </TouchableNativeFeedback>
-          ))}
+          )}
         </ScrollView>
 
         <TouchableNativeFeedback onPress={() => this.cancel()}>
@@ -42,7 +42,6 @@ class ListSelector extends React.Component {
             <Text style={style.cancelText}>CANCEL</Text>
           </View>
         </TouchableNativeFeedback>
-
       </View>
     );
   }
@@ -50,32 +49,32 @@ class ListSelector extends React.Component {
 
 const style = StyleSheet.create({
   container: {
-    backgroundColor: 'white',
-    width: Dimensions.get('window').width - 30,
-    height: Dimensions.get('window').height - 180,
-    justifyContent: 'space-between'
+    backgroundColor: "white",
+    width: Dimensions.get("window").width - 30,
+    height: Dimensions.get("window").height - 180,
+    justifyContent: "space-between"
   },
   list: {
     paddingLeft: 16,
     paddingRight: 16,
     height: 50,
-    justifyContent: 'center',
+    justifyContent: "center",
     borderBottomWidth: 1,
-    borderBottomColor: 'rgba(0, 0, 0, 0.16)'
+    borderBottomColor: "rgba(0, 0, 0, 0.16)"
   },
   text: {
     fontSize: 15,
-    color: 'rgba(0, 0, 0, 0.87)'
+    color: "rgba(0, 0, 0, 0.87)"
   },
   selectedText: {
-    color: '#00BCD4',
+    color: "#00BCD4",
     fontSize: 15
   },
   cancelText: {
     paddingLeft: 16,
     paddingBottom: 16,
     paddingTop: 16,
-    color: '#FF4081'
+    color: "#FF4081"
   }
 });
 
@@ -86,11 +85,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = {
-  selectList: (list, id) => ({
-    type: 'CHANGE_LIST',
-    list,
-    id
-  })
+  selectList: (list, id) => selectList(list, id)
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListSelector);

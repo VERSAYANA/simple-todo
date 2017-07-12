@@ -1,6 +1,17 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import MiniCalendar from './MiniCalendar';
+import React from "react";
+import { connect } from "react-redux";
+import MiniCalendar from "./MiniCalendar";
+import {
+  dateToday,
+  addTodo,
+  completeTodo,
+  additionalNote,
+  textTodo,
+  todoEditMode,
+  deleteTodo,
+  todoTextMode,
+  dateTodo
+} from "../../actionCreators";
 
 const cal = (today, todos, range) => {
   const date = new Date(today);
@@ -35,48 +46,16 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = {
-  dateToday: today => ({
-    type: 'TODAY',
-    today
-  }),
-  addTodo: (text, list, date, id) => ({
-    type: 'ADD_TODO',
-    text,
-    list,
-    date,
-    id
-  }),
-  complete: id => ({
-    type: 'COMPLETE_TODO',
-    id
-  }),
-  additionalNote: (note, id) => ({
-    type: 'ADDITIONAL_NOTE',
-    note,
-    id
-  }),
-  textTodo: (text, id) => ({
-    type: 'TEXT_TODO',
-    text,
-    id
-  }),
-  editMode: id => ({
-    type: 'TODO_EDIT_MODE',
-    id
-  }),
-  deleteTodo: id => ({
-    type: 'DELETE_TODO',
-    id
-  }),
-  textMode: id => ({
-    type: 'TODO_TEXT_MODE',
-    id
-  }),
-  dateTodo: (date, id) => ({
-    type: 'TODO_DATE',
-    date,
-    id
-  })
+  dateToday: today => dateToday(today),
+  addTodo: (text, list, date, focus, id) =>
+    addTodo(text, list, date, focus, id),
+  complete: id => completeTodo(id),
+  additionalNote: (note, id) => additionalNote(note, id),
+  textTodo: (text, id) => textTodo(text, id),
+  editMode: id => todoEditMode(id),
+  deleteTodo: id => deleteTodo(id),
+  textMode: id => todoTextMode(id),
+  dateTodo: (date, id) => dateTodo(date, id)
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MiniCalendar);

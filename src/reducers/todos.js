@@ -7,6 +7,7 @@ const todo = (state, action) => {
         list: action.list,
         id: action.id,
 				date: action.date,
+        focus: action.focus
       };
 
     case "COMPLETE_TODO":
@@ -90,6 +91,14 @@ const todo = (state, action) => {
 				}
 			}
 
+		case "TOGGLE_FOCUS":
+			if (state.id === action.id) {
+				return {
+					...state,
+					focus: !state.focus
+				}
+			}
+
 
 
 
@@ -143,6 +152,9 @@ const todos = (state = [], action) => {
 
 		case "CHANGE_LIST":
 			return state.map(t => todo(t, action));
+
+    case "TOGGLE_FOCUS":
+      return state.map(t => todo(t, action));
 
 
 

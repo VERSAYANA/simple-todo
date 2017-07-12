@@ -217,6 +217,7 @@ export default class MiniCalendar extends React.Component {
                         value.nativeEvent.text.trim(),
                         'All',
                         this.calDate(i, start, today),
+                        false,
                         id
                       );
                     }}

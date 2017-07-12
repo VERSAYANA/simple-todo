@@ -138,7 +138,8 @@ export default class MiniCalendar extends React.Component {
       editMode,
       deleteTodo,
       textMode,
-      dateTodo
+      dateTodo,
+      toggleFocus,
     } = this.props;
 
     return (
@@ -193,7 +194,7 @@ export default class MiniCalendar extends React.Component {
                     dateTodo={dateTodo}
                     viewAdditionalNote={this.viewAdditionalNote}
                     showListSelector={this.showListSelector}
-                    showDateIcon={false}
+                    toggleFocus={toggleFocus}
                   />
                 ))
               : null}

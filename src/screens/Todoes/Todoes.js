@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   Keyboard,
   ScrollView,
@@ -6,11 +6,11 @@ import {
   TextInput,
   Text
   // Switch
-} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+} from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-import SingleTodo from '../../components/SingleTodo';
-import style from './style/Todoes';
+import SingleTodo from "../../components/SingleTodo";
+import style from "./style/Todoes";
 
 export default class Lists extends React.Component {
   constructor(props) {
@@ -25,11 +25,11 @@ export default class Lists extends React.Component {
 
   componentWillMount() {
     this.keyboardDidShowListener = Keyboard.addListener(
-      'keyboardDidShow',
+      "keyboardDidShow",
       this.keyboardDidShow.bind(this)
     );
     this.keyboardDidHideListener = Keyboard.addListener(
-      'keyboardDidHide',
+      "keyboardDidHide",
       this.keyboardDidHide.bind(this)
     );
   }
@@ -53,47 +53,47 @@ export default class Lists extends React.Component {
     this.showTextInput(false);
     this.props.navigator.setButtons({
       fab: {
-        collapsedId: 'new-todo',
-        collapsedIcon: require('../../icons/plus-60-white.png'),
-        backgroundColor: '#FF4081'
+        collapsedId: "new-todo",
+        collapsedIcon: require("../../icons/plus-60-white.png"),
+        backgroundColor: "#FF4081"
       }
     });
   }
 
   onNavigatorEvent(event) {
-    if (event.id === 'new-todo') {
+    if (event.id === "new-todo") {
       // _scrollView.scrollToEnd({ animated: true });
       this.showTextInput(true);
     }
-    if (event.id === 'side-menu') {
+    if (event.id === "side-menu") {
       this.props.navigator.toggleDrawer({
-        side: 'right'
+        side: "right"
       });
     }
   }
 
   viewAdditionalNote(id, note) {
     this.props.navigator.showModal({
-      screen: 'simpletodo.AdditionalNote',
-      title: 'Note',
+      screen: "simpletodo.AdditionalNote",
+      title: "Note",
       animated: true,
       passProps: {
         id,
         note
       },
       navigatorStyle: {
-        statusBarColor: '#D81B60',
-        navBarBackgroundColor: '#EC407A',
-        navBarTextColor: 'white',
-        navBarButtonColor: 'white',
-        screenBackgroundColor: '#FAFAFA'
+        statusBarColor: "#D81B60",
+        navBarBackgroundColor: "#EC407A",
+        navBarTextColor: "white",
+        navBarButtonColor: "white",
+        screenBackgroundColor: "#FAFAFA"
       },
       navigatorButtons: {
         rightButtons: [
           {
-            id: 'done-note',
-            icon: require('../../icons/check-74-white.png'),
-            buttonColor: 'white'
+            id: "done-note",
+            icon: require("../../icons/check-74-white.png"),
+            buttonColor: "white"
           }
         ]
       }
@@ -102,13 +102,13 @@ export default class Lists extends React.Component {
 
   showListSelector(list, id) {
     this.props.navigator.showLightBox({
-      screen: 'simpletodo.ListSelector',
+      screen: "simpletodo.ListSelector",
       passProps: {
         list,
         id
       },
       style: {
-        backgroundBlur: 'dark'
+        backgroundBlur: "dark"
       }
     });
   }
@@ -118,7 +118,6 @@ export default class Lists extends React.Component {
       todoes,
       list,
       id,
-      filter,
       addTodo,
       toggleFilter,
       complete,
@@ -126,7 +125,8 @@ export default class Lists extends React.Component {
       deleteTodo,
       textMode,
       textTodo,
-      dateTodo
+      dateTodo,
+      toggleFocus,
     } = this.props;
 
     return (
@@ -147,7 +147,7 @@ export default class Lists extends React.Component {
               }}
             />
         </View> */}
-        {todoes.map((todo, i) => (
+        {todoes.map((todo, i) =>
           <SingleTodo
             key={i}
             todo={todo}
@@ -156,12 +156,12 @@ export default class Lists extends React.Component {
             deleteTodo={deleteTodo}
             textMode={textMode}
             textTodo={textTodo}
-						dateTodo={dateTodo}
+            dateTodo={dateTodo}
             viewAdditionalNote={this.viewAdditionalNote}
-						showListSelector={this.showListSelector}
-            showDateIcon={true}
+            showListSelector={this.showListSelector}
+            toggleFocus={toggleFocus}
           />
-        ))}
+        )}
 
         <View style={{ height: 80 }}>
           {this.state.showTextInput
@@ -175,16 +175,21 @@ export default class Lists extends React.Component {
                 <TextInput
                   autoFocus={true}
                   style={style.textInput}
-                  underlineColorAndroid={'transparent'}
+                  underlineColorAndroid={"transparent"}
                   onSubmitEditing={value => {
                     this.showTextInput(false);
-                    addTodo(value.nativeEvent.text.trim(), list, id);
+                    addTodo(
+                      value.nativeEvent.text.trim(),
+                      list,
+                      false,
+                      false,
+                      id
+                    );
                   }}
                 />
               </View>
             : null}
         </View>
-
       </ScrollView>
     );
   }

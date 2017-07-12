@@ -28,6 +28,7 @@ const TODO_DATE = "TODO_DATE";
 const TOGGLE_COMPLETED_FILTER = "TOGGLE_COMPLETED_FILTER";
 const CLEAR_COMPLETED = "CLEAR_COMPLETED";
 const MINICAL = "MINICAL";
+const TOGGLE_FOCUS = "TOGGLE_FOCUS";
 
 export const createList = makeActionCreator(CREATE_LIST, "title");
 export const deleteList = makeActionCreator(DELETE_LIST, "title");
@@ -58,3 +59,4 @@ export const dateTodo = makeActionCreator(TODO_DATE, "date", "id");
 export const toggleCompletedFilter = makeActionCreator(TOGGLE_COMPLETED_FILTER);
 export const clearCompleted = makeActionCreator(CLEAR_COMPLETED);
 export const miniCal = makeActionCreator(MINICAL, "start", "end");
+export const toggleFocus = makeActionCreator(TOGGLE_FOCUS, "id");

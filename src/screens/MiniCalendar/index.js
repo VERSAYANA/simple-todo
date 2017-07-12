@@ -10,7 +10,8 @@ import {
   todoEditMode,
   deleteTodo,
   todoTextMode,
-  dateTodo
+  dateTodo,
+  toggleFocus
 } from "../../actionCreators";
 
 const cal = (today, todos, range) => {
@@ -55,7 +56,8 @@ const mapDispatchToProps = {
   editMode: id => todoEditMode(id),
   deleteTodo: id => deleteTodo(id),
   textMode: id => todoTextMode(id),
-  dateTodo: (date, id) => dateTodo(date, id)
+  dateTodo: (date, id) => dateTodo(date, id),
+  toggleFocus: (id) => toggleFocus(id),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(MiniCalendar);

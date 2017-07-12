@@ -37,12 +37,18 @@ const style = StyleSheet.create({
 		paddingLeft: 0,
 		marginLeft: 0,
 	},
-	iconsContainer: {
-		flexDirection: 'row',
+	// iconsContainer: {
+	// 	flexDirection: 'row',
+	// },
+	// icon: {
+	// 	paddingLeft: 6,
+	// 	paddingTop: 4,
+	// },
+	iconStar: {
+		height: 50,
+		justifyContent: 'center',
 		paddingRight: 16,
-	},
-	icon: {
-		paddingLeft: 2
+		paddingLeft: 16,
 	}
 })
 

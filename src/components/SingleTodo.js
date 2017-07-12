@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   View,
   Text,
   TouchableNativeFeedback,
   TextInput,
   TouchableWithoutFeedback
-} from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+} from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-import Buttons from './Buttons';
-import style from './style/SingleTodo';
+import Buttons from "./Buttons";
+import style from "./style/SingleTodo";
 
 export default class SingleTodo extends React.Component {
   render() {
@@ -20,10 +20,10 @@ export default class SingleTodo extends React.Component {
       editMode,
       textMode,
       textTodo,
-			viewAdditionalNote,
-			dateTodo,
-			showListSelector,
-      showDateIcon
+      viewAdditionalNote,
+      dateTodo,
+      showListSelector,
+      toggleFocus
     } = this.props;
 
     let checkBox = null;
@@ -31,7 +31,7 @@ export default class SingleTodo extends React.Component {
       checkBox = (
         <Icon
           name="checkbox-blank-outline"
-          size={23}
+          size={22}
           color="rgba(0, 0, 0, 0.80)"
         />
       );
@@ -42,9 +42,17 @@ export default class SingleTodo extends React.Component {
     let todoTitle = null;
     if (!todo.editText) {
       if (!todo.completed) {
-        todoTitle = <Text style={style.text}>{todo.text}</Text>;
+        todoTitle = (
+          <Text style={style.text}>
+            {todo.text}
+          </Text>
+        );
       } else {
-        todoTitle = <Text style={style.completedText}>{todo.text}</Text>;
+        todoTitle = (
+          <Text style={style.completedText}>
+            {todo.text}
+          </Text>
+        );
       }
     } else {
       todoTitle = (
@@ -56,7 +64,7 @@ export default class SingleTodo extends React.Component {
             textMode(todo.id);
             editMode(todo.id);
           }}
-          returnKeyType={'done'}
+          returnKeyType={"done"}
           onSubmitEditing={v => {
             textTodo(v.nativeEvent.text, todo.id);
             textMode(todo.id);
@@ -72,10 +80,8 @@ export default class SingleTodo extends React.Component {
           editMode(todo.id);
         }}
       >
-
         <View style={style.todoWrapper}>
           <View style={style.todoRow}>
-
             <View style={style.left}>
               <TouchableWithoutFeedback
                 onPress={() => {
@@ -90,43 +96,56 @@ export default class SingleTodo extends React.Component {
               <View style={style.textContainer}>
                 {todoTitle}
               </View>
-
             </View>
 
-            <View style={style.iconsContainer}>
-              {todo.note
+            {/* <View style={style.iconsContainer}> */}
+            {/* {todo.note
                 ? <Icon
 										style={style.icon}
                     name="note-outline"
-                    size={18}
+                    size={16}
                     color="rgba(0, 0, 0, 0.54)"
                   />
-                : null}
-              {showDateIcon && todo.date
+                : null} */}
+            {/* {showDateIcon && todo.date
                 ? <Icon
 									style={style.icon}
                     name="calendar-blank"
-                    size={18}
+                    size={16}
                     color="rgba(0, 0, 0, 0.54)"
                   />
-                : null}
-            </View>
+                : null} */}
+            <TouchableNativeFeedback onPress={() => toggleFocus(todo.id)}>
+              <View style={style.iconStar}>
+                {!todo.focus
+                  ? <Icon
+                      name="star-outline"
+                      size={22}
+                      color="rgba(0, 0, 0, 0.80)"
+                    />
+                  : <Icon
+                      name="star"
+                      size={22}
+                      color="rgba(0, 0, 0, 0.80)"
+                    />}
+              </View>
+            </TouchableNativeFeedback>
 
+            {/* </View> */}
           </View>
           {todo.editMode
             ? <Buttons
                 deleteTodo={deleteTodo}
                 textMode={textMode}
                 id={todo.id}
-								note={todo.note}
-								date={todo.date}
-								list={todo.list}
-								viewAdditionalNote={viewAdditionalNote}
-								dateTodo={dateTodo}
-								showListSelector={showListSelector}
+                note={todo.note}
+                date={todo.date}
+                list={todo.list}
+                viewAdditionalNote={viewAdditionalNote}
+                dateTodo={dateTodo}
+                showListSelector={showListSelector}
               />
             : null}
-
         </View>
       </TouchableNativeFeedback>
     );

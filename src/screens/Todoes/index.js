@@ -9,12 +9,13 @@ import {
   deleteTodo,
   todoTextMode,
   dateTodo,
+  toggleFocus,
 } from "../../actionCreators";
 
 const listTodos = (todos, title) => {
   return todos.filter(x => x.list === title || title === 'All');
 };
-const fTodos = (todos, filter) => {
+const filteredTodos = (todos, filter) => {
   if (filter) {
     return [
       ...todos.filter(x => !x.completed),
@@ -25,8 +26,7 @@ const fTodos = (todos, filter) => {
 
 const mapStateToProps = (state, ownProps) => ({
   id: state.id,
-  todoes: fTodos(listTodos(state.todos, ownProps.title), state.filter),
-  filter: state.filter,
+  todoes: filteredTodos(listTodos(state.todos, ownProps.title), state.filter),
 	list: ownProps.title
 });
 
@@ -40,6 +40,7 @@ const mapDispatchToProps = {
   deleteTodo: id => deleteTodo(id),
   textMode: id => todoTextMode(id),
   dateTodo: (date, id) => dateTodo(date, id),
+  toggleFocus: (id) => toggleFocus(id),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todoes);

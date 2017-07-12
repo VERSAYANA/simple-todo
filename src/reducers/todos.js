@@ -99,9 +99,6 @@ const todo = (state, action) => {
 				}
 			}
 
-
-
-
     default:
       return state;
   }

@@ -22,7 +22,8 @@ export default class SingleTodo extends React.Component {
       textTodo,
 			viewAdditionalNote,
 			dateTodo,
-			showListSelector
+			showListSelector,
+      showDateIcon
     } = this.props;
 
     let checkBox = null;
@@ -101,7 +102,7 @@ export default class SingleTodo extends React.Component {
                     color="rgba(0, 0, 0, 0.54)"
                   />
                 : null}
-              {todo.date
+              {showDateIcon && todo.date
                 ? <Icon
 									style={style.icon}
                     name="calendar-blank"

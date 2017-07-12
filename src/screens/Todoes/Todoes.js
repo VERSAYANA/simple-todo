@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import SingleTodo from './SingleTodo';
+import SingleTodo from '../../components/SingleTodo';
 import style from './style/Todoes';
 
 export default class Lists extends React.Component {
@@ -159,6 +159,7 @@ export default class Lists extends React.Component {
 						dateTodo={dateTodo}
             viewAdditionalNote={this.viewAdditionalNote}
 						showListSelector={this.showListSelector}
+            showDateIcon={true}
           />
         ))}
 

@@ -11,7 +11,7 @@ import {
 // import TimerMixin from 'react-timer-mixin';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import SingleTodo from './SingleTodo';
+import SingleTodo from '../../components/SingleTodo';
 
 import style from './style/MiniCalendar';
 
@@ -193,6 +193,7 @@ export default class MiniCalendar extends React.Component {
                     dateTodo={dateTodo}
                     viewAdditionalNote={this.viewAdditionalNote}
                     showListSelector={this.showListSelector}
+                    showDateIcon={false}
                   />
                 ))
               : null}

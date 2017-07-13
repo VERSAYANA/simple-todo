@@ -40,21 +40,21 @@ export default class Buttons extends React.Component {
     let calendarIcon = '';
     if (date) {
       calendarIcon = (
-        <Icon name="calendar-blank" size={19} color="rgba(0, 0, 0, 0.87)" />
+        <Icon name="calendar-blank" size={19} color="rgba(255, 255, 255, 0.68)" />
       );
     } else {
       calendarIcon = (
-        <Icon name="calendar-plus" size={19} color="rgba(0, 0, 0, 0.87)" />
+        <Icon name="calendar-plus" size={19} color="rgba(255, 255, 255, 0.68)" />
       );
     }
     let noteIcon = '';
     if (note) {
       noteIcon = (
-        <Icon name="note-outline" size={19} color="rgba(0, 0, 0, 0.87)" />
+        <Icon name="note-outline" size={19} color="rgba(255, 255, 255, 0.68)" />
       );
     } else {
       noteIcon = (
-        <Icon name="note-plus-outline" size={19} color="rgba(0, 0, 0, 0.87)" />
+        <Icon name="note-plus-outline" size={19} color="rgba(255, 255, 255, 0.68)" />
       );
     }
 
@@ -78,7 +78,7 @@ export default class Buttons extends React.Component {
             )}
         >
           <View style={style.container}>
-            <Icon name="delete" size={19} color="rgba(0, 0, 0, 0.87)" />
+            <Icon name="delete" size={19} color="rgba(255, 255, 255, 0.68)" />
             <Text style={style.text}>Delete</Text>
           </View>
         </TouchableNativeFeedback>
@@ -88,7 +88,7 @@ export default class Buttons extends React.Component {
             <Icon
               name="format-list-bulleted"
               size={19}
-              color="rgba(0, 0, 0, 0.87)"
+              color="rgba(255, 255, 255, 0.68)"
             />
             <Text style={style.text}>List</Text>
           </View>
@@ -142,7 +142,7 @@ export default class Buttons extends React.Component {
           }}
         >
           <View style={style.container}>
-            <Icon name="pencil" size={19} color="rgba(0, 0, 0, 0.87)" />
+            <Icon name="pencil" size={19} color="rgba(255, 255, 255, 0.68)" />
             <Text style={style.text}>Edit</Text>
           </View>
         </TouchableNativeFeedback>

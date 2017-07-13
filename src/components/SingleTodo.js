@@ -32,7 +32,7 @@ export default class SingleTodo extends React.Component {
         <Icon
           name="checkbox-blank-outline"
           size={22}
-          color="rgba(0, 0, 0, 0.80)"
+          color="rgba(255, 255, 255, 0.80)"
         />
       );
     } else {
@@ -76,6 +76,7 @@ export default class SingleTodo extends React.Component {
 
     return (
       <TouchableNativeFeedback
+        background={TouchableNativeFeedback.Ripple('rgba(255, 255, 255, 0.12)')}
         onPress={() => {
           editMode(todo.id);
         }}
@@ -121,12 +122,12 @@ export default class SingleTodo extends React.Component {
                   ? <Icon
                       name="star-outline"
                       size={22}
-                      color="rgba(0, 0, 0, 0.80)"
+                      color="rgba(255, 255, 255, 0.80)"
                     />
                   : <Icon
                       name="star"
                       size={22}
-                      color="rgba(0, 0, 0, 0.80)"
+                      color="rgba(255, 255, 255, 0.80)"
                     />}
               </View>
             </TouchableNativeFeedback>

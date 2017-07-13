@@ -2,12 +2,12 @@ import { StyleSheet } from 'react-native';
 
 const style = StyleSheet.create({
 	listRow: {
-		backgroundColor: 'white',
+		backgroundColor: '#263238',
 		height: 55,
 		// paddingLeft: 16,
 		// paddingRight: 16,
-		borderBottomWidth: 1,
-		borderBottomColor: 'rgba(0, 0, 0, 0.12)',
+		// borderBottomWidth: 1,
+		// borderBottomColor: 'rgba(255, 255, 255, 0.30)',
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
@@ -17,11 +17,11 @@ const style = StyleSheet.create({
 		paddingLeft: 16,
 	},
 	listTitle: {
-		color: 'rgba(0, 0, 0, 0.87)',
+		color: 'rgba(255, 255, 255, 0.87)',
 		fontSize: 14,
 	},
 	counterText: {
-		color: 'rgba(0, 0, 0, 0.54)',
+		color: 'rgba(255, 255, 255, 0.60)',
 		paddingRight: 16,
 	},
 })

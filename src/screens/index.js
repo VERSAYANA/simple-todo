@@ -4,7 +4,6 @@ import Lists from './Lists';
 import Todoes from './Todoes';
 import AdditionalNote from './AdditionalNote';
 import SideMenu from './SideMenu';
-import TopTabsScreen from './TopTabsScreen';
 import MiniCalendar from './MiniCalendar';
 import ListSelector from './ListSelector';
 import Home from './Home';
@@ -31,12 +30,6 @@ export function registerScreens(store, Provider) {
   Navigation.registerComponent(
     'simpletodo.SideMenu',
     () => SideMenu,
-    store,
-    Provider
-  );
-  Navigation.registerComponent(
-    'simpletodo.TopTabsScreen',
-    () => TopTabsScreen,
     store,
     Provider
   );

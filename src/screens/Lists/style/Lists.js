@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const style = StyleSheet.create({
+
 	textInput: {
 		height: 55,
     backgroundColor: 'white',

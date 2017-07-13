@@ -23,42 +23,42 @@ export default class Lists extends React.Component {
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
-  componentWillMount() {
-    this.keyboardDidShowListener = Keyboard.addListener(
-      "keyboardDidShow",
-      this.keyboardDidShow.bind(this)
-    );
-    this.keyboardDidHideListener = Keyboard.addListener(
-      "keyboardDidHide",
-      this.keyboardDidHide.bind(this)
-    );
-  }
+  // componentWillMount() {
+  //   this.keyboardDidShowListener = Keyboard.addListener(
+  //     "keyboardDidShow",
+  //     this.keyboardDidShow.bind(this)
+  //   );
+  //   this.keyboardDidHideListener = Keyboard.addListener(
+  //     "keyboardDidHide",
+  //     this.keyboardDidHide.bind(this)
+  //   );
+  // }
 
-  componentWillUnmount() {
-    this.keyboardDidShowListener.remove();
-    this.keyboardDidHideListener.remove();
-  }
+  // componentWillUnmount() {
+  //   this.keyboardDidShowListener.remove();
+  //   this.keyboardDidHideListener.remove();
+  // }
 
   showTextInput(val) {
     this.setState({ showTextInput: val });
   }
 
-  keyboardDidShow() {
-    this.props.navigator.setButtons({
-      fab: {}
-    });
-  }
+  // keyboardDidShow() {
+  //   this.props.navigator.setButtons({
+  //     fab: {}
+  //   });
+  // }
 
-  keyboardDidHide() {
-    this.showTextInput(false);
-    this.props.navigator.setButtons({
-      fab: {
-        collapsedId: "new-todo",
-        collapsedIcon: require("../../icons/plus-60-white.png"),
-        backgroundColor: "#FF4081"
-      }
-    });
-  }
+  // keyboardDidHide() {
+  //   this.showTextInput(false);
+  //   this.props.navigator.setButtons({
+  //     fab: {
+  //       collapsedId: "new-todo",
+  //       collapsedIcon: require("../../icons/plus-60-white.png"),
+  //       backgroundColor: "#FF4081"
+  //     }
+  //   });
+  // }
 
   onNavigatorEvent(event) {
     if (event.id === "new-todo") {

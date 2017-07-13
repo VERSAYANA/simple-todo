@@ -16,58 +16,58 @@ export default class Lists extends React.Component {
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
-  componentWillMount() {
-    this.keyboardDidShowListener = Keyboard.addListener(
-      'keyboardDidShow',
-      this.keyboardDidShow.bind(this)
-    );
-    this.keyboardDidHideListener = Keyboard.addListener(
-      'keyboardDidHide',
-      this.keyboardDidHide.bind(this)
-    );
-  }
+  // componentWillMount() {
+  //   this.keyboardDidShowListener = Keyboard.addListener(
+  //     'keyboardDidShow',
+  //     this.keyboardDidShow.bind(this)
+  //   );
+  //   this.keyboardDidHideListener = Keyboard.addListener(
+  //     'keyboardDidHide',
+  //     this.keyboardDidHide.bind(this)
+  //   );
+  // }
+  //
+  // componentWillUnmount() {
+  //   this.keyboardDidShowListener.remove();
+  //   this.keyboardDidHideListener.remove();
+  // }
 
-  componentWillUnmount() {
-    this.keyboardDidShowListener.remove();
-    this.keyboardDidHideListener.remove();
-  }
-
-  componentDidMount() {
-    this.props.navigator.setButtons({
-      fab: {
-        collapsedId: 'new-list',
-        collapsedIcon: require('../../icons/plus-60-white.png'),
-        backgroundColor: '#FF4081'
-      },
-      rightButtons: [
-        {
-          icon: require('../../icons/menu-74-white.png'),
-          id: 'side-menu'
-        }
-      ]
-    });
-  }
+  // componentDidMount() {
+  //   this.props.navigator.setButtons({
+  //     fab: {
+  //       collapsedId: 'new-list',
+  //       collapsedIcon: require('../../icons/plus-60-white.png'),
+  //       backgroundColor: '#FF4081'
+  //     },
+  //     rightButtons: [
+  //       {
+  //         icon: require('../../icons/menu-74-white.png'),
+  //         id: 'side-menu'
+  //       }
+  //     ]
+  //   });
+  // }
 
   showTextInput(val) {
     this.setState({ showTextInput: val });
   }
 
-  keyboardDidShow() {
-    this.props.navigator.setButtons({
-      fab: {}
-    });
-  }
-
-  keyboardDidHide() {
-    this.props.navigator.setButtons({
-      fab: {
-        collapsedId: 'new-list',
-        collapsedIcon: require('../../icons/plus-60-white.png'),
-        backgroundColor: '#FF4081'
-      }
-    });
-    this.showTextInput(false);
-  }
+  // keyboardDidShow() {
+  //   this.props.navigator.setButtons({
+  //     fab: {}
+  //   });
+  // }
+  //
+  // keyboardDidHide() {
+  //   this.props.navigator.setButtons({
+  //     fab: {
+  //       collapsedId: 'new-list',
+  //       collapsedIcon: require('../../icons/plus-60-white.png'),
+  //       backgroundColor: '#FF4081'
+  //     }
+  //   });
+  //   this.showTextInput(false);
+  // }
 
   onNavigatorEvent(event) {
     if (event.id === 'new-list') {
@@ -89,25 +89,25 @@ export default class Lists extends React.Component {
         title
       },
       navigatorStyle: {
-        statusBarColor: '#0097A7',
-        navBarBackgroundColor: '#00BCD4',
-        navBarTextColor: 'white',
-        navBarButtonColor: 'white',
-        screenBackgroundColor: '#FAFAFA'
+        // statusBarColor: '#0097A7',
+        navBarBackgroundColor: '#263238',
+        navBarTextColor: 'rgba(255, 255, 255, 0.87)',
+        navBarButtonColor: 'rgba(255, 255, 255, 0.87)',
+        // screenBackgroundColor: '#FAFAFA'
       },
-      navigatorButtons: {
-        rightButtons: [
-          {
-            id: 'side-menu',
-            icon: require('../../icons/menu-74-white.png')
-          }
-        ],
-        fab: {
-          collapsedId: 'new-todo',
-          collapsedIcon: require('../../icons/plus-60-white.png'),
-          backgroundColor: '#FF4081'
-        }
-      }
+      // navigatorButtons: {
+      //   rightButtons: [
+      //     {
+      //       id: 'side-menu',
+      //       icon: require('../../icons/menu-74-white.png')
+      //     }
+      //   ],
+      //   fab: {
+      //     collapsedId: 'new-todo',
+      //     collapsedIcon: require('../../icons/plus-60-white.png'),
+      //     backgroundColor: '#FF4081'
+      //   }
+      // }
     });
   }
 
@@ -122,7 +122,7 @@ export default class Lists extends React.Component {
     } = this.props;
 
     return (
-			<View style={{flex: 1}}>
+			<View>
       <ScrollView>
         {lists.map((list, i) => (
           <SingleList

@@ -4,7 +4,7 @@ const style = StyleSheet.create({
 	todoWrapper: {
 		// borderBottomColor: 'rgba(0, 0, 0, 0.12)',
 		// borderBottomWidth: 1,
-		backgroundColor: 'white',
+		backgroundColor: '#263238',
 		justifyContent: 'space-around'
 	},
 	todoRow: {
@@ -27,7 +27,7 @@ const style = StyleSheet.create({
 		flex: 1,
 	},
 	text: {
-		color: 'rgba(0, 0, 0, 0.80)'
+		color: 'rgba(255, 255, 255, 0.80)'
 	},
 	completedText: {
 		color: 'rgba(0, 0, 0, 0.54)',

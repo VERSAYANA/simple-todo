@@ -7,12 +7,12 @@ const style = StyleSheet.create({
 	buttonWrapper: {
 		justifyContent: 'center',
 		alignItems: 'center',
-		width: 50,
-		height: 50,
+		width: 45,
+		height: 45,
 	},
 	buttonText: {
-		color: 'rgba(0, 0, 0, 0.87)',
-		fontSize: 11,
+		color: 'rgba(255, 255, 255, 0.75)',
+		fontSize: 10,
 	}
 })
 

@@ -1,115 +1,47 @@
-import React, { Component } from 'react';
-import { View, TextInput, ScrollView, Keyboard } from 'react-native';
+import React, { Component } from "react";
+import {
+  View,
+  TextInput,
+  ScrollView,
+  TouchableWithoutFeedback
+} from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-import SingleList from './SingleList';
-import style from './style/Lists';
+import SingleList from "./SingleList";
+import style from "./style/Lists";
 
 export default class Lists extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showTextInput: false
+      inputValue: false
     };
-
-    this.showTextInput = this.showTextInput.bind(this);
     this.viewList = this.viewList.bind(this);
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
-  }
-
-  // componentWillMount() {
-  //   this.keyboardDidShowListener = Keyboard.addListener(
-  //     'keyboardDidShow',
-  //     this.keyboardDidShow.bind(this)
-  //   );
-  //   this.keyboardDidHideListener = Keyboard.addListener(
-  //     'keyboardDidHide',
-  //     this.keyboardDidHide.bind(this)
-  //   );
-  // }
-  //
-  // componentWillUnmount() {
-  //   this.keyboardDidShowListener.remove();
-  //   this.keyboardDidHideListener.remove();
-  // }
-
-  // componentDidMount() {
-  //   this.props.navigator.setButtons({
-  //     fab: {
-  //       collapsedId: 'new-list',
-  //       collapsedIcon: require('../../icons/plus-60-white.png'),
-  //       backgroundColor: '#FF4081'
-  //     },
-  //     rightButtons: [
-  //       {
-  //         icon: require('../../icons/menu-74-white.png'),
-  //         id: 'side-menu'
-  //       }
-  //     ]
-  //   });
-  // }
-
-  showTextInput(val) {
-    this.setState({ showTextInput: val });
-  }
-
-  // keyboardDidShow() {
-  //   this.props.navigator.setButtons({
-  //     fab: {}
-  //   });
-  // }
-  //
-  // keyboardDidHide() {
-  //   this.props.navigator.setButtons({
-  //     fab: {
-  //       collapsedId: 'new-list',
-  //       collapsedIcon: require('../../icons/plus-60-white.png'),
-  //       backgroundColor: '#FF4081'
-  //     }
-  //   });
-  //   this.showTextInput(false);
-  // }
-
-  onNavigatorEvent(event) {
-    if (event.id === 'new-list') {
-      this.showTextInput(true);
-    }
-    if (event.id === 'side-menu') {
-      this.props.navigator.toggleDrawer({
-        side: 'right'
-      });
-    }
   }
 
   viewList(title) {
     this.props.navigator.push({
-      screen: 'simpletodo.Todoes',
+      screen: "simpletodo.Todoes",
       title,
       animated: true,
       passProps: {
         title
       },
       navigatorStyle: {
-        // statusBarColor: '#0097A7',
-        navBarBackgroundColor: '#263238',
-        navBarTextColor: 'rgba(255, 255, 255, 0.87)',
-        navBarButtonColor: 'rgba(255, 255, 255, 0.87)',
-        // screenBackgroundColor: '#FAFAFA'
-      },
-      // navigatorButtons: {
-      //   rightButtons: [
-      //     {
-      //       id: 'side-menu',
-      //       icon: require('../../icons/menu-74-white.png')
-      //     }
-      //   ],
-      //   fab: {
-      //     collapsedId: 'new-todo',
-      //     collapsedIcon: require('../../icons/plus-60-white.png'),
-      //     backgroundColor: '#FF4081'
-      //   }
-      // }
+        navBarBackgroundColor: "#263238",
+        navBarTextColor: "rgba(255, 255, 255, 0.87)",
+        navBarButtonColor: "rgba(255, 255, 255, 0.87)"
+      }
     });
   }
+
+  setInputValue(value) {
+    this.setState({ inputValue: value });
+  }
+
+  clearTextInput = () => {
+    this._textInput.setNativeProps({ text: "" });
+  };
 
   render() {
     const {
@@ -122,35 +54,53 @@ export default class Lists extends React.Component {
     } = this.props;
 
     return (
-			<View>
-      <ScrollView>
-        {lists.map((list, i) => (
-          <SingleList
-            key={i}
-            list={list}
-            viewList={this.viewList}
-            deleteList={deleteList}
-            toggleEdit={toggleEdit}
-            toggleListTitle={toggleListTitle}
-            submitEditList={submitEditList}
-          />
-        ))}
+      <View>
+        <ScrollView>
+          {lists.map((list, i) =>
+            <SingleList
+              key={i}
+              list={list}
+              viewList={this.viewList}
+              deleteList={deleteList}
+              toggleEdit={toggleEdit}
+              toggleListTitle={toggleListTitle}
+              submitEditList={submitEditList}
+            />
+          )}
 
-        <View style={{ height: 85 }}>
-          {this.state.showTextInput
-            ? <TextInput
-                autoFocus={true}
-                style={style.textInput}
-                underlineColorAndroid={'transparent'}
-                onSubmitEditing={value => {
-                  this.showTextInput(false);
-                  createList(value.nativeEvent.text.trim());
-                }}
-              />
-            : null}
-        </View>
-      </ScrollView>
-		</View>
+          <View style={style.newlistInput}>
+            <TextInput
+              ref={component => (this._textInput = component)}
+              style={style.textInput}
+              placeholder={"New List"}
+              placeholderTextColor={"#80CBC4"}
+              underlineColorAndroid={"transparent"}
+              onChangeText={newText => this.setInputValue(newText)}
+              onSubmitEditing={value => {
+                createList(value.nativeEvent.text.trim());
+                this.clearTextInput();
+                this.setInputValue(false);
+              }}
+            />
+
+            <TouchableWithoutFeedback
+              onPress={() => {
+                if (!this.state.inputValue) {
+                  this._textInput.focus();
+                } else {
+                  createList(this.state.inputValue.trim());
+                  this.clearTextInput();
+                  this.setInputValue(false);
+                }
+              }}
+            >
+              <View style={style.plusIcon}>
+                <Icon name="plus" size={22} color="#26c9b3" />
+              </View>
+            </TouchableWithoutFeedback>
+          </View>
+        </ScrollView>
+      </View>
     );
   }
 }

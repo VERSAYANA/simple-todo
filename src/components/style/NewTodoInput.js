@@ -17,6 +17,8 @@ const style = StyleSheet.create({
 		// color: 'rgba(255, 255, 255, 0.87)',
 	},
 	plusIcon: {
+    height: 40,
+    justifyContent: 'center',
 		paddingLeft: 16,
 		paddingRight: 16,
 	},

@@ -27,14 +27,14 @@ export default class Buttons extends React.Component {
             )}
         >
           <View style={style.buttonWrapper}>
-            <Icon name="delete" size={19} color="rgba(0, 0, 0, 0.87)" />
+            <Icon name="delete" size={18} color="rgba(255, 255, 255, 0.75)" />
             <Text style={style.buttonText}>Delete</Text>
           </View>
         </TouchableNativeFeedback>
 
         <TouchableNativeFeedback onPress={() => { toggleListTitle(title) }}>
           <View style={style.buttonWrapper}>
-            <Icon name="pencil" size={19} color="rgba(0, 0, 0, 0.87)" />
+            <Icon name="pencil" size={18} color="rgba(255, 255, 255, 0.75)" />
             <Text style={style.buttonText}>Edit</Text>
           </View>
         </TouchableNativeFeedback>

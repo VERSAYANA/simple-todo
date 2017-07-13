@@ -27,6 +27,7 @@ export default class SingleList extends React.Component {
     } else {
       left = (
         <TextInput
+          style={style.textInput}
           defaultValue={list.title}
           autoFocus={true}
           onBlur={() => {

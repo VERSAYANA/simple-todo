@@ -36,7 +36,7 @@ export default class SingleTodo extends React.Component {
         />
       );
     } else {
-      checkBox = <Icon name="checkbox-marked" size={23} color="#FF4081" />;
+      checkBox = <Icon name="checkbox-marked" size={22} color="rgba(255, 255, 255, 0.80" />;
     }
 
     let todoTitle = null;

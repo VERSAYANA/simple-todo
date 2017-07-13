@@ -7,6 +7,7 @@ import SideMenu from './SideMenu';
 import TopTabsScreen from './TopTabsScreen';
 import MiniCalendar from './MiniCalendar';
 import ListSelector from './ListSelector';
+import Home from './Home';
 
 export function registerScreens(store, Provider) {
   Navigation.registerComponent(
@@ -48,6 +49,12 @@ export function registerScreens(store, Provider) {
   Navigation.registerComponent(
     'simpletodo.ListSelector',
     () => ListSelector,
+    store,
+    Provider
+  );
+  Navigation.registerComponent(
+    'simpletodo.Home',
+    () => Home,
     store,
     Provider
   );

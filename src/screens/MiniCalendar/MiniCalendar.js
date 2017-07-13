@@ -26,8 +26,8 @@ export default class MiniCalendar extends React.Component {
       input: false
     };
 
-    this.viewAdditionalNote = this.viewAdditionalNote.bind(this);
-    this.showListSelector = this.showListSelector.bind(this);
+    this.viewAdditionalNote = this._viewAdditionalNote.bind(this);
+    this.showListSelector = this._showListSelector.bind(this);
 
     // this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
@@ -50,7 +50,7 @@ export default class MiniCalendar extends React.Component {
     }
   }
 
-  viewAdditionalNote(id, note) {
+  _viewAdditionalNote(id, note) {
     this.props.navigator.showModal({
       screen: 'simpletodo.AdditionalNote',
       title: 'Note',
@@ -78,7 +78,7 @@ export default class MiniCalendar extends React.Component {
     });
   }
 
-  showListSelector(list, id) {
+  _showListSelector(list, id) {
     this.props.navigator.showLightBox({
       screen: 'simpletodo.ListSelector',
       passProps: {
@@ -192,8 +192,8 @@ export default class MiniCalendar extends React.Component {
                     textMode={textMode}
                     textTodo={textTodo}
                     dateTodo={dateTodo}
-                    viewAdditionalNote={this.viewAdditionalNote}
-                    showListSelector={this.showListSelector}
+                    viewAdditionalNote={this._viewAdditionalNote}
+                    showListSelector={this._showListSelector}
                     toggleFocus={toggleFocus}
                   />
                 ))

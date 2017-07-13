@@ -26,9 +26,14 @@ Navigation.startSingleScreenApp({
     navigatorStyle,
     topTabs: [
       {
+        screenId: 'simpletodo.Home',
+        title: 'Home'
+      },
+      {
         screenId: 'simpletodo.Lists',
         title: 'Lists'
       },
+
       {
         screenId: 'simpletodo.MiniCalendar',
         title: 'MiniCalendar'

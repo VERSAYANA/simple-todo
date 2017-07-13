@@ -35,9 +35,10 @@ const style = StyleSheet.create({
 		flex: 1,
 		paddingLeft: 0,
 		marginLeft: 0,
-		color: 'rgba(255, 255, 255, 0.68)',
+		color: '#80CBC4',
+		// color: 'rgba(255, 255, 255, 0.87)',
 	},
-	checkBox: {
+	plusIcon: {
 		paddingLeft: 16,
 		paddingRight: 16,
 	},

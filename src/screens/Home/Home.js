@@ -1,16 +1,24 @@
 import React, { Component } from "react";
-import { ScrollView, View, Text, TextInput } from "react-native";
+import {
+  ScrollView,
+  View,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback
+} from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import SingleTodo from "../../components/SingleTodo";
+import NewTodoInput from "../../components/NewTodoInput";
 import style from "./style/Home";
 
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   showTextInput: false
-    // };
+    this.state = {
+      todayInputValue: false,
+      focusInputValue: false
+    };
     this.viewAdditionalNote = this._viewAdditionalNote.bind(this);
     this.showListSelector = this._showListSelector.bind(this);
     // this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
@@ -44,7 +52,6 @@ export default class Home extends React.Component {
     });
   }
 
-
   _showListSelector(list, id) {
     this.props.navigator.showLightBox({
       screen: "simpletodo.ListSelector",
@@ -57,6 +64,20 @@ export default class Home extends React.Component {
       }
     });
   }
+
+  setTodayInputValue(value) {
+    this.setState({ todayInputValue: value });
+  }
+  setFocusInputValue(value) {
+    this.setState({ focusInputValue: value });
+  }
+
+  clearTodayInput = () => {
+    this._todayInput.setNativeProps({ text: "" });
+  };
+  // clearFocusInput = () => {
+  //   this._focusInput.setNativeProps({text: ''});
+  // }
 
   render() {
     const {
@@ -83,22 +104,13 @@ export default class Home extends React.Component {
             <Text style={style.subheader}>Today</Text>
           </View>
 
-          {/* <View style={style.textInputContainer}>
-            <Icon
-              style={style.checkBox}
-              name="plus"
-              size={22}
-              color="#26c9b3"
-            />
-            <TextInput
-              style={style.textInput}
-              placeholder={"New To-Do"}
-              underlineColorAndroid={"transparent"}
-              onSubmitEditing={value => {
-                addTodo(value.nativeEvent.text.trim(), list, today, false, id);
-              }}
-            />
-          </View> */}
+          <NewTodoInput
+            addTodo={addTodo}
+            list={list}
+            date={today}
+            focus={false}
+            id={id}
+          />
 
           {todayTodoes.map((todo, i) =>
             <SingleTodo
@@ -121,6 +133,15 @@ export default class Home extends React.Component {
           <View style={style.subheaderContainer}>
             <Text style={style.subheader}>Focus</Text>
           </View>
+
+          <NewTodoInput
+            addTodo={addTodo}
+            list={list}
+            date={false}
+            focus={true}
+            id={id}
+          />
+
           {focusTodoes.map((todo, i) =>
             <SingleTodo
               key={i}

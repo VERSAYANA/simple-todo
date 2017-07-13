@@ -14,7 +14,7 @@ const style = StyleSheet.create({
 		alignItems: 'center',
 	},
 	text: {
-		color: 'rgba(255, 255, 255, 0.68)',
+		color: 'rgba(255, 255, 255, 0.75)',
 		fontSize: 11,
 	},
 })

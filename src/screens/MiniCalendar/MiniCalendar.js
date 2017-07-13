@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   ViewPagerAndroid,
   View,
@@ -6,14 +6,14 @@ import {
   TouchableNativeFeedback,
   ScrollView,
   TextInput
-} from 'react-native';
+} from "react-native";
 // import reactMixin from 'react-mixin';
 // import TimerMixin from 'react-timer-mixin';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-import SingleTodo from '../../components/SingleTodo';
+import SingleTodo from "../../components/SingleTodo";
 
-import style from './style/MiniCalendar';
+import style from "./style/MiniCalendar";
 
 export default class MiniCalendar extends React.Component {
   // mixins: [TimerMixin];
@@ -26,8 +26,8 @@ export default class MiniCalendar extends React.Component {
       input: false
     };
 
-    this.viewAdditionalNote = this._viewAdditionalNote.bind(this);
-    this.showListSelector = this._showListSelector.bind(this);
+    this._viewAdditionalNote = this._viewAdditionalNote.bind(this);
+    this._showListSelector = this._showListSelector.bind(this);
 
     // this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
@@ -52,26 +52,26 @@ export default class MiniCalendar extends React.Component {
 
   _viewAdditionalNote(id, note) {
     this.props.navigator.showModal({
-      screen: 'simpletodo.AdditionalNote',
-      title: 'Note',
+      screen: "simpletodo.AdditionalNote",
+      title: "Note",
       animated: true,
       passProps: {
         id,
         note
       },
       navigatorStyle: {
-        statusBarColor: '#D81B60',
-        navBarBackgroundColor: '#EC407A',
-        navBarTextColor: 'white',
-        navBarButtonColor: 'white',
-        screenBackgroundColor: '#FAFAFA'
+        statusBarColor: "#D81B60",
+        navBarBackgroundColor: "#EC407A",
+        navBarTextColor: "white",
+        navBarButtonColor: "white",
+        screenBackgroundColor: "#FAFAFA"
       },
       navigatorButtons: {
         rightButtons: [
           {
-            id: 'done-note',
-            icon: require('../../icons/check-74-white.png'),
-            buttonColor: 'white'
+            id: "done-note",
+            icon: require("../../icons/check-74-white.png"),
+            buttonColor: "white"
           }
         ]
       }
@@ -80,23 +80,23 @@ export default class MiniCalendar extends React.Component {
 
   _showListSelector(list, id) {
     this.props.navigator.showLightBox({
-      screen: 'simpletodo.ListSelector',
+      screen: "simpletodo.ListSelector",
       passProps: {
         list,
         id
       },
       style: {
-        backgroundBlur: 'dark'
+        backgroundBlur: "dark"
       }
     });
   }
 
   showDay(selected, show) {
-		if(show === selected && selected !== false) {
-			this.setState({ show: false });
-		} else {
-    this.setState({ show: selected });
-		}
+    if (show === selected && selected !== false) {
+      this.setState({ show: false });
+    } else {
+      this.setState({ show: selected });
+    }
   }
 
   showInput(selected) {
@@ -108,7 +108,7 @@ export default class MiniCalendar extends React.Component {
       return `${i + start}`;
     }
     if (i + start == 0) {
-      return 'Today';
+      return "Today";
     }
     if (i + start > 0) {
       return `+${i + start}`;
@@ -139,15 +139,16 @@ export default class MiniCalendar extends React.Component {
       deleteTodo,
       textMode,
       dateTodo,
-      toggleFocus,
+      toggleFocus
     } = this.props;
 
     return (
       <ScrollView>
-        {miniCalendar.map((todos, i) => (
+        {miniCalendar.map((todos, i) =>
           <View key={i} style={style.week}>
-
-            <TouchableNativeFeedback onPress={() => this.showDay(i, this.state.show)}>
+            <TouchableNativeFeedback
+              onPress={() => this.showDay(i, this.state.show)}
+            >
               <View style={style.titleContainer}>
                 <Text
                   style={
@@ -175,14 +176,12 @@ export default class MiniCalendar extends React.Component {
                       <Icon name="plus" size={20} />
                     </View>
                   </TouchableNativeFeedback>
-
                 </View>
-
               </View>
             </TouchableNativeFeedback>
 
             {this.state.show === i
-              ? todos.map((todo, j) => (
+              ? todos.map((todo, j) =>
                   <SingleTodo
                     key={j}
                     todo={todo}
@@ -196,7 +195,7 @@ export default class MiniCalendar extends React.Component {
                     showListSelector={this._showListSelector}
                     toggleFocus={toggleFocus}
                   />
-                ))
+                )
               : null}
 
             {this.state.input === i
@@ -210,13 +209,13 @@ export default class MiniCalendar extends React.Component {
                   <TextInput
                     autoFocus={true}
                     style={style.textInput}
-                    underlineColorAndroid={'transparent'}
+                    underlineColorAndroid={"transparent"}
                     onBlur={() => this.showInput(false)}
                     onSubmitEditing={value => {
                       this.showInput(false);
                       addTodo(
                         value.nativeEvent.text.trim(),
-                        'All',
+                        "All",
                         this.calDate(i, start, today),
                         false,
                         id
@@ -225,10 +224,8 @@ export default class MiniCalendar extends React.Component {
                   />
                 </View>
               : null}
-
           </View>
-        ))}
-
+        )}
       </ScrollView>
     );
   }

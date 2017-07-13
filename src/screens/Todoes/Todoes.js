@@ -18,8 +18,8 @@ export default class Lists extends React.Component {
     this.state = {
       showTextInput: false
     };
-    this.viewAdditionalNote = this._viewAdditionalNote.bind(this);
-    this.showListSelector = this._showListSelector.bind(this);
+    this._viewAdditionalNote = this._viewAdditionalNote.bind(this);
+    this._showListSelector = this._showListSelector.bind(this);
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 

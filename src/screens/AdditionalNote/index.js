@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { additionalNote } from "../../actionCreators";
 
 class AdditionalNote extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {

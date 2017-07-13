@@ -2,8 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const style = StyleSheet.create({
 	todoWrapper: {
-		borderBottomColor: 'rgba(0, 0, 0, 0.12)',
-		borderBottomWidth: 1,
+		// borderBottomColor: 'rgba(0, 0, 0, 0.12)',
+		// borderBottomWidth: 1,
 		backgroundColor: 'white',
 		justifyContent: 'space-around'
 	},

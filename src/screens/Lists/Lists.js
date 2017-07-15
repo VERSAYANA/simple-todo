@@ -99,6 +99,9 @@ export default class Lists extends React.Component {
               </View>
             </TouchableWithoutFeedback>
           </View>
+
+          <View style={{ height: 55 }} />
+
         </ScrollView>
       </View>
     );

@@ -27,7 +27,7 @@ Navigation.startTabBasedApp({
     },
 
     {
-      screen: "simpletodo.MiniCalendar",
+      screen: "simpletodo.Week",
       label: "Week",
       icon: require("./icons/calendar-text-60-white.png"),
       navigatorStyle

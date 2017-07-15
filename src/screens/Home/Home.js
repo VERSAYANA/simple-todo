@@ -98,7 +98,7 @@ export default class Home extends React.Component {
     } = this.props;
 
     return (
-      <ScrollView style={style.contentContainer}>
+      <ScrollView>
         <View style={style.todayContainer}>
           <View style={style.subheaderContainer}>
             <Text style={style.subheader}>Today</Text>
@@ -158,6 +158,9 @@ export default class Home extends React.Component {
             />
           )}
         </View>
+
+        <View style={{ height: 50 }} />
+
       </ScrollView>
     );
   }

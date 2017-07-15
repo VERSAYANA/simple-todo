@@ -10,6 +10,7 @@ import {
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 import SingleTodo from "../../components/SingleTodo";
+import NewTodoInput from "../../components/NewTodoInput";
 import style from "./style/Todoes";
 
 export default class Lists extends React.Component {
@@ -23,42 +24,9 @@ export default class Lists extends React.Component {
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
-  // componentWillMount() {
-  //   this.keyboardDidShowListener = Keyboard.addListener(
-  //     "keyboardDidShow",
-  //     this.keyboardDidShow.bind(this)
-  //   );
-  //   this.keyboardDidHideListener = Keyboard.addListener(
-  //     "keyboardDidHide",
-  //     this.keyboardDidHide.bind(this)
-  //   );
-  // }
-
-  // componentWillUnmount() {
-  //   this.keyboardDidShowListener.remove();
-  //   this.keyboardDidHideListener.remove();
-  // }
-
   showTextInput(val) {
     this.setState({ showTextInput: val });
   }
-
-  // keyboardDidShow() {
-  //   this.props.navigator.setButtons({
-  //     fab: {}
-  //   });
-  // }
-
-  // keyboardDidHide() {
-  //   this.showTextInput(false);
-  //   this.props.navigator.setButtons({
-  //     fab: {
-  //       collapsedId: "new-todo",
-  //       collapsedIcon: require("../../icons/plus-60-white.png"),
-  //       backgroundColor: "#FF4081"
-  //     }
-  //   });
-  // }
 
   onNavigatorEvent(event) {
     if (event.id === "new-todo") {
@@ -126,27 +94,19 @@ export default class Lists extends React.Component {
       textMode,
       textTodo,
       dateTodo,
-      toggleFocus,
+      toggleFocus
     } = this.props;
 
     return (
-      <ScrollView
-      // ref={scrollView => {
-      //   _scrollView = scrollView;
-      // }}
-      >
-        {/* <View style={style.switchRow}>
-          <View style={{ paddingLeft: 16 }}>
-            <Text>Show completed todoes</Text>
-          </View>
-            <Switch
-              style={{ marginRight: 6 }}
-              value={filter}
-              onValueChange={() => {
-                toggleFilter();
-              }}
-            />
-        </View> */}
+      <ScrollView>
+        <NewTodoInput
+          addTodo={addTodo}
+          list={list}
+          date={false}
+          focus={false}
+          id={id}
+        />
+
         {todoes.map((todo, i) =>
           <SingleTodo
             key={i}
@@ -163,33 +123,7 @@ export default class Lists extends React.Component {
           />
         )}
 
-        <View style={{ height: 80 }}>
-          {this.state.showTextInput
-            ? <View style={style.textInputContainer}>
-                <Icon
-                  style={style.checkBox}
-                  name="checkbox-blank-outline"
-                  size={23}
-                  color="rgba(0, 0, 0, 0.68)"
-                />
-                <TextInput
-                  autoFocus={true}
-                  style={style.textInput}
-                  underlineColorAndroid={"transparent"}
-                  onSubmitEditing={value => {
-                    this.showTextInput(false);
-                    addTodo(
-                      value.nativeEvent.text.trim(),
-                      list,
-                      false,
-                      false,
-                      id
-                    );
-                  }}
-                />
-              </View>
-            : null}
-        </View>
+        <View style={{ height: 50 }} />
       </ScrollView>
     );
   }

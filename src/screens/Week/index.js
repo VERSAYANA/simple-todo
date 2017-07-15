@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import MiniCalendar from "./MiniCalendar";
+import Week from "./Week";
 import {
   dateToday,
   addTodo,
@@ -14,13 +14,14 @@ import {
   toggleFocus
 } from "../../actionCreators";
 
-const cal = (today, todos, range) => {
+const cal = (today, todos) => {
   const date = new Date(today);
-  const rangeL = range.end - range.start;
-  date.setDate(date.getDate() + range.start);
+  const start = date.getDay();
+  date.setDate(date.getDate() - start);
   let array = [];
-  for (i = 0; i <= rangeL; i++) {
+  for (i = 0; i <= 6; i++) {
     array.push(todos.filter(t => t.date === date.toDateString()));
+    console.log(date.toDateString());
     date.setDate(date.getDate() + 1);
   }
   return array;
@@ -38,11 +39,9 @@ const compCal = (todos, filter) => {
 const mapStateToProps = state => ({
   id: state.id,
   today: state.today,
-  start: state.miniCalendar.start,
-  miniCalendar: cal(
+  week: cal(
     state.today,
     compCal(state.todos, state.filter),
-    state.miniCalendar
   )
 });
 
@@ -60,4 +59,4 @@ const mapDispatchToProps = {
   toggleFocus: (id) => toggleFocus(id),
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MiniCalendar);
+export default connect(mapStateToProps, mapDispatchToProps)(Week);

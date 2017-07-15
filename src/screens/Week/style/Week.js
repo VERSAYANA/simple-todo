@@ -1,12 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 const style = StyleSheet.create({
-	todayContainer: {
+	dayContainer: {
 		borderBottomColor: 'rgba(255, 255, 255, 0.12)',
 		borderBottomWidth: 1,
 		backgroundColor: '#263238'
 	},
-	focusContainer: {
+	lastContainer: {
 		backgroundColor: '#263238'
 	},
 	subheaderContainer: {
@@ -36,6 +36,7 @@ const style = StyleSheet.create({
 		paddingLeft: 16,
 		paddingRight: 16,
 	},
+
 })
 
 export default style;

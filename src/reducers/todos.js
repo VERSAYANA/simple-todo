@@ -108,7 +108,7 @@ const todos = (state = [], action) => {
   switch (action.type) {
     case "ADD_TODO":
 			if(action.text) {
-	      return [...state, todo(undefined, action)];
+	      return [todo(undefined, action), ...state];
 			} else return state;
 
     case "COMPLETE_TODO":

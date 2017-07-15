@@ -45,7 +45,7 @@ export default class Buttons extends React.Component {
           ref={component => (this._textInput = component)}
           style={style.textInput}
           placeholder={"New To-Do"}
-          placeholderTextColor={"#80CBC4"}
+          placeholderTextColor={"#26c9b3"}
           underlineColorAndroid={"transparent"}
           onChangeText={newText => this.setInputValue(newText)}
           onSubmitEditing={value => {

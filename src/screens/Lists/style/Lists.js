@@ -14,7 +14,7 @@ const style = StyleSheet.create({
     paddingRight: 16,
 		// borderBottomWidth: 1,
 		// borderBottomColor: 'rgba(0, 0, 0, 0.12)',
-		color: 'rgba(255, 255, 255, 0.87)',
+		color: '#26c9b3',
 	},
 	plusIcon: {
 		paddingRight: 16,

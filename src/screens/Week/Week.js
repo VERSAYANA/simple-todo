@@ -44,14 +44,13 @@ export default class Week extends React.Component {
     this.props.navigator.showModal({
       screen: "simpletodo.AdditionalNote",
       title: "Note",
-      animated: true,
       passProps: {
         id,
         note
       },
       navigatorStyle: {
-        statusBarColor: "#D81B60",
-        navBarBackgroundColor: "#EC407A",
+        statusBarColor: "#347f78",
+        navBarBackgroundColor: "#4d9891",
         navBarTextColor: "white",
         navBarButtonColor: "white",
         screenBackgroundColor: "#FAFAFA"
@@ -87,7 +86,8 @@ export default class Week extends React.Component {
     }
     switch (index) {
       case 0:
-        return "Saturday";
+        return "Sunday";
+
       case 1:
         return "Monday";
       case 2:
@@ -99,7 +99,7 @@ export default class Week extends React.Component {
       case 5:
         return "Friday";
       case 6:
-        return "Sunday";
+        return "Saturday";
     }
   }
 

@@ -16,14 +16,13 @@ export default class Lists extends React.Component {
     this.state = {
       inputValue: false
     };
-    this.viewList = this.viewList.bind(this);
+    this._viewList = this._viewList.bind(this);
   }
 
-  viewList(title) {
+  _viewList(title) {
     this.props.navigator.push({
       screen: "simpletodo.Todoes",
       title,
-      animated: true,
       passProps: {
         title
       },
@@ -60,7 +59,7 @@ export default class Lists extends React.Component {
             <SingleList
               key={i}
               list={list}
-              viewList={this.viewList}
+              viewList={this._viewList}
               deleteList={deleteList}
               toggleEdit={toggleEdit}
               toggleListTitle={toggleListTitle}
@@ -73,7 +72,7 @@ export default class Lists extends React.Component {
               ref={component => (this._textInput = component)}
               style={style.textInput}
               placeholder={"New List"}
-              placeholderTextColor={"#80CBC4"}
+              placeholderTextColor={"#26c9b3"}
               underlineColorAndroid={"transparent"}
               onChangeText={newText => this.setInputValue(newText)}
               onSubmitEditing={value => {

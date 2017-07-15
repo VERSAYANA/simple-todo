@@ -3,7 +3,7 @@ import { Navigation } from 'react-native-navigation';
 import Lists from './Lists';
 import Todoes from './Todoes';
 import AdditionalNote from './AdditionalNote';
-import SideMenu from './SideMenu';
+// import SideMenu from './SideMenu';
 import Week from './Week';
 import ListSelector from './ListSelector';
 import Home from './Home';
@@ -27,12 +27,12 @@ export function registerScreens(store, Provider) {
     store,
     Provider
   );
-  Navigation.registerComponent(
-    'simpletodo.SideMenu',
-    () => SideMenu,
-    store,
-    Provider
-  );
+  // Navigation.registerComponent(
+  //   'simpletodo.SideMenu',
+  //   () => SideMenu,
+  //   store,
+  //   Provider
+  // );
   Navigation.registerComponent(
     'simpletodo.Week',
     () => Week,

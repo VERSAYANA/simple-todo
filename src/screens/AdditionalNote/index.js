@@ -40,7 +40,8 @@ class AdditionalNote extends React.Component {
         <TextInput
           style={style.noteTextInput}
           autoFocus={true}
-          placeholder="Your note ..."
+          placeholder={"Your note ..."}
+          placeholderTextColor={"rgba(255, 255, 255, 0.75)"}
           defaultValue={note ? note : ""}
           multiline={true}
           underlineColorAndroid="transparent"
@@ -67,7 +68,8 @@ const style = StyleSheet.create({
     paddingRight: 16,
     textAlignVertical: "top",
     justifyContent: "flex-start",
-    color: "rgba(0, 0, 0, 0.87)"
+    color: "rgba(255, 255, 255, 0.75)",
+    backgroundColor: "#263238",
     // fontSize: 14,
   }
 });

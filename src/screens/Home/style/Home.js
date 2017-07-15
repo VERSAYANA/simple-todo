@@ -30,7 +30,7 @@ const style = StyleSheet.create({
     flex: 1,
     paddingLeft: 0,
     marginLeft: 0,
-    color: "#80CBC4"
+    color: "#26c9b3"
   },
   plusIcon: {
     paddingLeft: 16,

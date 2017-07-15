@@ -36,7 +36,13 @@ export default class SingleTodo extends React.Component {
         />
       );
     } else {
-      checkBox = <Icon name="checkbox-marked" size={22} color="rgba(255, 255, 255, 0.80" />;
+      checkBox = (
+        <Icon
+          name="checkbox-marked"
+          size={22}
+          color="rgba(255, 255, 255, 0.80"
+        />
+      );
     }
 
     let todoTitle = null;
@@ -76,7 +82,6 @@ export default class SingleTodo extends React.Component {
 
     return (
       <TouchableNativeFeedback
-        background={TouchableNativeFeedback.Ripple('rgba(255, 255, 255, 0.12)')}
         onPress={() => {
           editMode(todo.id);
         }}

@@ -7,7 +7,7 @@ import store from "./store";
 registerScreens(store, Provider);
 
 const navigatorStyle = {
-  screenBackgroundColor: "#21272B",
+  // screenBackgroundColor: "#21272B",
   navBarHidden: true
 };
 
@@ -35,10 +35,12 @@ Navigation.startTabBasedApp({
   ],
   appStyle: {
     orientation: "portrait",
-
+    statusBarColor: "#263238",
+    screenBackgroundColor: "#21272B",
     tabBarBackgroundColor: "#263238",
     tabBarButtonColor: "#ffffff",
-    tabBarSelectedButtonColor: "#80CBC4",
+    // tabBarSelectedButtonColor: "#80CBC4",
+    tabBarSelectedButtonColor: "#26c9b3",
     tabBarTranslucent: true
   }
   // drawer: {

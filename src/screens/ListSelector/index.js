@@ -49,7 +49,7 @@ class ListSelector extends React.Component {
 
 const style = StyleSheet.create({
   container: {
-    backgroundColor: "white",
+    backgroundColor: "#21272B",
     width: Dimensions.get("window").width - 30,
     height: Dimensions.get("window").height - 180,
     justifyContent: "space-between"
@@ -60,21 +60,22 @@ const style = StyleSheet.create({
     height: 50,
     justifyContent: "center",
     borderBottomWidth: 1,
-    borderBottomColor: "rgba(0, 0, 0, 0.16)"
+    borderBottomColor: "rgba(255, 255, 255, 0.12)"
   },
   text: {
-    fontSize: 15,
-    color: "rgba(0, 0, 0, 0.87)"
+    fontSize: 14,
+    color: "rgba(255, 255, 255, 0.87)"
   },
   selectedText: {
-    color: "#00BCD4",
-    fontSize: 15
+    color: "#26c9b3",
+    fontSize: 14
   },
   cancelText: {
     paddingLeft: 16,
     paddingBottom: 16,
     paddingTop: 16,
-    color: "#FF4081"
+    color: "rgba(255, 255, 255, 0.87)",
+    fontWeight: "bold"
   }
 });
 

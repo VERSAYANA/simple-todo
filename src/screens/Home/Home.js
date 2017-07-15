@@ -28,14 +28,13 @@ export default class Home extends React.Component {
     this.props.navigator.showModal({
       screen: "simpletodo.AdditionalNote",
       title: "Note",
-      animated: true,
       passProps: {
         id,
         note
       },
       navigatorStyle: {
-        statusBarColor: "#D81B60",
-        navBarBackgroundColor: "#EC407A",
+        statusBarColor: "#347f78",
+        navBarBackgroundColor: "#4d9891",
         navBarTextColor: "white",
         navBarButtonColor: "white",
         screenBackgroundColor: "#FAFAFA"

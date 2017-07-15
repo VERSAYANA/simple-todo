@@ -16,7 +16,7 @@ import style from "./style/Week";
 export default class Week extends React.Component {
   constructor(props) {
     super(props);
-
+    
     this._viewAdditionalNote = this._viewAdditionalNote.bind(this);
     this._showListSelector = this._showListSelector.bind(this);
   }
@@ -124,7 +124,7 @@ export default class Week extends React.Component {
             style={index !== 6 ? style.dayContainer : style.lastContainer}
           >
             <View style={style.subheaderContainer}>
-              <Text style={style.subheader}>
+              <Text style={index !== todayIndex ? style.subheader : style.todaySubheader}>
                 {this.dayTitle(index, todayIndex)}
               </Text>
             </View>

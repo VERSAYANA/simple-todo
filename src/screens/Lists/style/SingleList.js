@@ -18,7 +18,7 @@ const style = StyleSheet.create({
   },
   listTitle: {
     color: "rgba(255, 255, 255, 0.87)",
-    fontSize: 14
+    fontSize: 15
   },
   textInput: {
     color: "rgba(255, 255, 255, 0.87)",

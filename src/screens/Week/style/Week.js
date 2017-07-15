@@ -15,7 +15,12 @@ const style = StyleSheet.create({
 		paddingLeft: 16,
 	},
 	subheader: {
-		color: 'rgba(255, 255, 255, 0.87)',
+		color: 'rgba(255, 255, 255, 0.80)',
+		fontSize: 16,
+		fontWeight: "bold",
+	},
+	todaySubheader: {
+		color: 'rgba(255, 255, 255, 1)',
 		fontSize: 16,
 		fontWeight: "bold",
 	},

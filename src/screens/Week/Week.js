@@ -16,7 +16,17 @@ import style from "./style/Week";
 export default class Week extends React.Component {
   constructor(props) {
     super(props);
-    
+
+    const todayIndex = new Date(props.today).getDay();
+    let array = [];
+    for (i = 0; i <= 6; i++) {
+      if (i === todayIndex) {
+        array.push(true);
+      } else array.push(false);
+    }
+
+    this.state = { show: array };
+
     this._viewAdditionalNote = this._viewAdditionalNote.bind(this);
     this._showListSelector = this._showListSelector.bind(this);
   }
@@ -71,7 +81,7 @@ export default class Week extends React.Component {
     });
   }
 
-  dayTitle(index, todayIndex) {
+  _dayTitle(index, todayIndex) {
     if (index === todayIndex) {
       return "Today";
     }
@@ -93,10 +103,16 @@ export default class Week extends React.Component {
     }
   }
 
-  dayDate(index, todayIndex, today) {
+  _dayDate(index, todayIndex, today) {
     const date = new Date(today);
     date.setDate(date.getDate() - (todayIndex - index));
     return date.toDateString();
+  }
+
+  _showDay(index) {
+    const array = this.state.show;
+    array[index] = !array[index];
+    this.setState({ show: array });
   }
 
   render() {
@@ -123,40 +139,62 @@ export default class Week extends React.Component {
             key={index}
             style={index !== 6 ? style.dayContainer : style.lastContainer}
           >
-            <View style={style.subheaderContainer}>
-              <Text style={index !== todayIndex ? style.subheader : style.todaySubheader}>
-                {this.dayTitle(index, todayIndex)}
-              </Text>
-            </View>
+            <TouchableNativeFeedback onPress={() => this._showDay(index)}>
+              <View style={style.subheaderContainer}>
+                <Text
+                  style={
+                    index !== todayIndex
+                      ? style.subheader
+                      : style.todaySubheader
+                  }
+                >
+                  {this._dayTitle(index, todayIndex)}
+                </Text>
+                {!this.state.show[index]
+                  ? <Icon
+                      name={"chevron-down"}
+                      size={18}
+                      color={"rgba(255, 255, 255, 0.65)"}
+                    />
+                  : <Icon
+                      name={"chevron-up"}
+                      size={18}
+                      color={"rgba(255, 255, 255, 0.65)"}
+                    />}
+              </View>
+            </TouchableNativeFeedback>
 
-            <NewTodoInput
-              addTodo={addTodo}
-              list={list}
-              date={this.dayDate(index, todayIndex, today)}
-              focus={false}
-              id={id}
-            />
+            {this.state.show[index]
+              ? <View>
+                  <NewTodoInput
+                    addTodo={addTodo}
+                    list={list}
+                    date={this._dayDate(index, todayIndex, today)}
+                    focus={false}
+                    id={id}
+                  />
 
-            {dayTodos.map((todo, i) =>
-              <SingleTodo
-                key={i}
-                todo={todo}
-                complete={complete}
-                editMode={editMode}
-                deleteTodo={deleteTodo}
-                textMode={textMode}
-                textTodo={textTodo}
-                dateTodo={dateTodo}
-                viewAdditionalNote={this.viewAdditionalNote}
-                showListSelector={this.showListSelector}
-                toggleFocus={toggleFocus}
-              />
-            )}
+                  {dayTodos.map((todo, i) =>
+                    <SingleTodo
+                      key={i}
+                      todo={todo}
+                      complete={complete}
+                      editMode={editMode}
+                      deleteTodo={deleteTodo}
+                      textMode={textMode}
+                      textTodo={textTodo}
+                      dateTodo={dateTodo}
+                      viewAdditionalNote={this.viewAdditionalNote}
+                      showListSelector={this.showListSelector}
+                      toggleFocus={toggleFocus}
+                    />
+                  )}
+                </View>
+              : null}
           </View>
         )}
 
         <View style={{ height: 50 }} />
-
       </ScrollView>
     );
   }

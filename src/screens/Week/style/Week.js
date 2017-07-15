@@ -10,9 +10,12 @@ const style = StyleSheet.create({
 		backgroundColor: '#263238'
 	},
 	subheaderContainer: {
-		justifyContent: 'center',
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
 		height: 48,
 		paddingLeft: 16,
+		paddingRight: 16,
 	},
 	subheader: {
 		color: 'rgba(255, 255, 255, 0.80)',

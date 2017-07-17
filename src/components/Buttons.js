@@ -64,7 +64,7 @@ export default class Buttons extends React.Component {
         <TouchableNativeFeedback
           onPress={() =>
             Alert.alert(
-              `Delete Todo`,
+              `Delete To-Do`,
               null,
               [
                 { text: 'CANCEL' },

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
-  NativeModules,
-  LayoutAnimation,
+	NativeModules,
+	LayoutAnimation,
 	ViewPagerAndroid,
 	View,
 	Text,
@@ -142,15 +142,15 @@ export default class Week extends React.Component {
 		return (
 			<ScrollView>
 				{week.map((dayTodos, index) =>
-					<View
+					<TouchableNativeFeedback
 						key={index}
-						style={index !== 6 ? style.dayContainer : style.lastContainer}
+						onPress={() => {
+							LayoutAnimation.easeInEaseOut();
+							this._showDay(index);
+						}}
 					>
-						<TouchableNativeFeedback
-							onPress={() => {
-								LayoutAnimation.easeInEaseOut();
-								this._showDay(index);
-							}}
+						<View
+							style={index !== 6 ? style.dayContainer : style.lastContainer}
 						>
 							<View style={style.subheaderContainer}>
 								<Text
@@ -174,36 +174,36 @@ export default class Week extends React.Component {
 											color={'rgba(255, 255, 255, 0.65)'}
 										/>}
 							</View>
-						</TouchableNativeFeedback>
 
-						{this.state.show[index]
-							? <View>
-									<NewTodoInput
-										addTodo={addTodo}
-										list={list}
-										date={this._dayDate(index, todayIndex, today)}
-										focus={false}
-										id={id}
-									/>
-
-									{dayTodos.map((todo, i) =>
-										<SingleTodo
-											key={i}
-											todo={todo}
-											complete={complete}
-											editMode={editMode}
-											deleteTodo={deleteTodo}
-											textMode={textMode}
-											textTodo={textTodo}
-											dateTodo={dateTodo}
-											viewAdditionalNote={this.viewAdditionalNote}
-											showListSelector={this.showListSelector}
-											toggleFocus={toggleFocus}
+							{this.state.show[index]
+								? <View>
+										<NewTodoInput
+											addTodo={addTodo}
+											list={list}
+											date={this._dayDate(index, todayIndex, today)}
+											focus={false}
+											id={id}
 										/>
-									)}
-								</View>
-							: null}
-					</View>
+
+										{dayTodos.map((todo, i) =>
+											<SingleTodo
+												key={i}
+												todo={todo}
+												complete={complete}
+												editMode={editMode}
+												deleteTodo={deleteTodo}
+												textMode={textMode}
+												textTodo={textTodo}
+												dateTodo={dateTodo}
+												viewAdditionalNote={this.viewAdditionalNote}
+												showListSelector={this.showListSelector}
+												toggleFocus={toggleFocus}
+											/>
+										)}
+									</View>
+								: null}
+						</View>
+					</TouchableNativeFeedback>
 				)}
 
 				<View style={{ height: 50 }} />

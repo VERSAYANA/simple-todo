@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {
+	NativeModules,
+	LayoutAnimation,
   View,
   Text,
   TouchableNativeFeedback,
@@ -9,6 +11,11 @@ import {
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import style from './style/Buttons';
+
+const { UIManager } = NativeModules;
+
+UIManager.setLayoutAnimationEnabledExperimental &&
+	UIManager.setLayoutAnimationEnabledExperimental(true);
 
 export default class Buttons extends React.Component {
   showDatePicker = async (id, options) => {
@@ -71,6 +78,7 @@ export default class Buttons extends React.Component {
                 {
                   text: 'DELETE',
                   onPress: () => {
+										LayoutAnimation.easeInEaseOut();
                     deleteTodo(id);
                   }
                 }

@@ -99,6 +99,7 @@ export default class SingleTodo extends React.Component {
 						<View style={style.left}>
 							<TouchableWithoutFeedback
 								onPress={() => {
+									LayoutAnimation.easeInEaseOut();
 									complete(todo.id);
 								}}
 							>

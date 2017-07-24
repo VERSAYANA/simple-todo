@@ -41,7 +41,6 @@ Navigation.startTabBasedApp({
     tabBarButtonColor: "#ffffff",
     // tabBarSelectedButtonColor: "#80CBC4",
     tabBarSelectedButtonColor: "#26c9b3",
-    tabBarTranslucent: true
   }
   // drawer: {
   //   right: {

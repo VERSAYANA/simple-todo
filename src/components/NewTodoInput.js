@@ -49,7 +49,7 @@ export default class Buttons extends React.Component {
 					}}
 				>
 					<View style={style.plusIcon}>
-						<Icon name="plus" size={22} color="#26c9b3" />
+						<Icon name="plus" size={20} color="#26c9b3" />
 					</View>
 				</TouchableWithoutFeedback>
 

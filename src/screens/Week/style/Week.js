@@ -15,36 +15,35 @@ const style = StyleSheet.create({
 		alignItems: 'center',
 		height: 48,
 		paddingLeft: 16,
-		paddingRight: 16,
+		paddingRight: 16
 	},
 	subheader: {
-		color: 'rgba(255, 255, 255, 0.80)',
-		fontSize: 16,
-		fontWeight: "bold",
+		color: 'rgba(255, 255, 255, 1)',
+		fontSize: 15,
+		fontWeight: 'bold'
 	},
 	todaySubheader: {
 		color: 'rgba(255, 255, 255, 1)',
-		fontSize: 16,
-		fontWeight: "bold",
+		fontSize: 15,
+		fontWeight: 'bold'
 	},
 	textInputContainer: {
 		backgroundColor: '#263238',
 		height: 50,
 		flexDirection: 'row',
 
-		alignItems: 'center',
+		alignItems: 'center'
 	},
 	textInput: {
 		flex: 1,
 		paddingLeft: 0,
 		marginLeft: 0,
-		color: '#26c9b3',
+		color: '#26c9b3'
 	},
 	plusIcon: {
 		paddingLeft: 16,
-		paddingRight: 16,
-	},
-
-})
+		paddingRight: 16
+	}
+});
 
 export default style;

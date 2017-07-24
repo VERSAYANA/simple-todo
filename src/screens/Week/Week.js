@@ -165,12 +165,12 @@ export default class Week extends React.Component {
 								{!this.state.show[index]
 									? <Icon
 											name={'chevron-down'}
-											size={18}
+											size={20}
 											color={'rgba(255, 255, 255, 0.65)'}
 										/>
 									: <Icon
 											name={'chevron-up'}
-											size={18}
+											size={20}
 											color={'rgba(255, 255, 255, 0.65)'}
 										/>}
 							</View>

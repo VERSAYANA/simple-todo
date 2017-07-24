@@ -38,7 +38,7 @@ export default class SingleTodo extends React.Component {
 			checkBox = (
 				<Icon
 					name="checkbox-blank-outline"
-					size={22}
+					size={20}
 					color="rgba(255, 255, 255, 0.80)"
 				/>
 			);
@@ -46,8 +46,8 @@ export default class SingleTodo extends React.Component {
 			checkBox = (
 				<Icon
 					name="checkbox-marked"
-					size={22}
-					color="rgba(255, 255, 255, 0.80"
+					size={20}
+					color="rgba(255, 255, 255, 0.80)"
 				/>
 			);
 		}
@@ -135,12 +135,12 @@ export default class SingleTodo extends React.Component {
 								{!todo.focus
 									? <Icon
 											name="star-outline"
-											size={22}
+											size={20}
 											color="rgba(255, 255, 255, 0.80)"
 										/>
 									: <Icon
 											name="star"
-											size={22}
+											size={20}
 											color="rgba(255, 255, 255, 0.80)"
 										/>}
 							</View>

@@ -28,7 +28,8 @@ const style = StyleSheet.create({
   counterText: {
     color: "rgba(255, 255, 255, 0.60)",
     paddingRight: 16,
-    paddingLeft: 16
+    paddingLeft: 16,
+		fontSize: 15
   }
 });
 

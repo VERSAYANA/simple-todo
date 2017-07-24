@@ -6,7 +6,7 @@ const style = StyleSheet.create({
 	row: {
 		flexDirection: 'row',
 		justifyContent: 'space-around',
-		height: 45,
+		height: 50,
 	},
 	container: {
 		width: (Dimensions.get('window').width / 5) - 10,
@@ -15,7 +15,7 @@ const style = StyleSheet.create({
 	},
 	text: {
 		color: 'rgba(255, 255, 255, 0.75)',
-		fontSize: 10,
+		fontSize: 9,
 	},
 })
 

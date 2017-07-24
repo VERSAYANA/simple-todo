@@ -63,12 +63,12 @@ const style = StyleSheet.create({
     borderBottomColor: "rgba(255, 255, 255, 0.12)"
   },
   text: {
-    fontSize: 14,
+    fontSize: 15,
     color: "rgba(255, 255, 255, 0.87)"
   },
   selectedText: {
     color: "#26c9b3",
-    fontSize: 14
+    fontSize: 15
   },
   cancelText: {
     paddingLeft: 16,

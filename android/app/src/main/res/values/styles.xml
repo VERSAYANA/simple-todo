@@ -1,23 +1,8 @@
 <resources>
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
+	<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 		<item name="colorPrimary">#263238</item>
-				<item name="colorPrimaryDark">#21272B</item>
-				<item name="colorAccent">#26c9b3</item>
-        <item name="colorControlHighlight">#33FFFFFF</item>
-    </style>
+		<item name="colorPrimaryDark">#21272B</item>
+		<item name="colorAccent">#26c9b3</item>
+		<item name="colorControlHighlight">#33FFFFFF</item>
+	</style>
 </resources>
-
-<!-- <resources> -->
-  <!-- inherit from the material theme -->
-  <!-- <style name="AppTheme" parent="android:Theme.Material"> -->
-    <!-- Main theme colors -->
-    <!--   your app branding color for the app bar -->
-    <!-- <item name="android:colorPrimary">#263238</item> -->
-    <!--   darker variant for the status bar and contextual app bars -->
-    <!-- <item name="android:colorPrimaryDark">#21272B</item> -->
-    <!--   theme UI controls like checkboxes and text fields -->
-    <!-- <item name="android:colorAccent">#80CBC4</item> -->
-  <!-- </style> -->
-<!-- </resources> -->

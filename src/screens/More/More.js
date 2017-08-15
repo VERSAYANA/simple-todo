@@ -60,7 +60,7 @@ export default class Home extends React.Component {
 					</View>
 				</View>
 
-				<View style={style.section}>
+				{/* <View style={style.section}>
 					<View style={style.titileContainer}>
 						<Text style={style.title}>Account</Text>
 					</View>
@@ -70,7 +70,7 @@ export default class Home extends React.Component {
 							<Text style={style.itemText}>Sign up / Login</Text>
 						</View>
 					</View>
-				</View>
+				</View> */}
 
 				<View style={style.lastSection}>
 					<View style={style.titileContainer}>
